@@ -62,7 +62,7 @@ I would call this something like flexget but stripped down and very plug and pla
 
 <strong>Plans for the future:</strong>
 
-\-Filter out already downloaded (possible)
+\-Improve filtering out already downloaded (possible)
 
 \-Explain how to edit the ini files for easier setup (possible)
 
