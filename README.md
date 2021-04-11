@@ -54,10 +54,9 @@ I would call this something like flexget but stripped down and very plug and pla
 
 4)Adjust timer to be more than 1 minute
 
-5)Change the destination of the torrents by clicking on the folder. The destination must be the full path /home/… without short cuts such as ~ and must end with /
+5)Change the destination of the torrents by clicking on the folder. The destination must be the full path /home/… without short cuts such as ~ and must end with / .
 
 6) enjoy the program grabbing and downloading the tor files for you
-
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
