@@ -24,19 +24,19 @@ I would call this something like flexget but stripped down and very plug and pla
 
 \-Only 35mb on idle and only goes up 1-3mb per url added.
 
+\-Compare ini file to see if file was previously downloaded.
+
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 <strong>LIMITS:</strong>
 
 \-No Magnets (I can’t figure out how to work magnet links since they are encoded)
 
-\-CURRENTLY doesn’t check the parse against the torrents\_downloaded.ini to prevent multiple of the same.
-
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 <strong>Bugs</strong> (To the best of my knowledge):
 
-\-If the rss feed is more than 10,000 torrents the program locks up for multiple minutes but does pull through eventually.
+\-If the rss feed is more than 1,000 torrents the program locks up for multiple minutes but does pull through eventually.
 
 \-Small delay of the parsing timer restarting and the files appearing.
 
