@@ -26,14 +26,15 @@ I would call this something like flexget but stripped down and very plug and pla
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-LIMITS:
+<strong>LIMITS:</strong>
 
 \-No Magnets (I can’t figure out how to work magnet links since they are encoded)
 
 \-CURRENTLY doesn’t check the parse against the torrents\_downloaded.ini to prevent multiple of the same.
 
+--------------------------------------------------------------------------------------------------------------------------------------------
 
-Bugs (To the best of my knowledge):
+<strong>Bugs</strong> (To the best of my knowledge):
 
 \-If the rss feed is more than 10,000 torrents the program locks up for multiple minutes but does pull through eventually.
 
@@ -43,7 +44,7 @@ Bugs (To the best of my knowledge):
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-How To:
+<strong>How To:</strong>
 
 1)Get url of the rss feed (including the https://www.)
 
@@ -60,7 +61,7 @@ How To:
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-Plans for the future:
+<strong>Plans for the future:</strong>
 
 \-Filter out already downloaded (possible)
 
@@ -72,7 +73,7 @@ Plans for the future:
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-Note: the Update error was something I used to see when a rss feed could parse but the rss feed itself was not parsing correctly. AKA the url works but the rss feed is acting weird.
+<strong>Note:</strong> the Update error was something I used to see when a rss feed could parse but the rss feed itself was not parsing correctly. AKA the url works but the rss feed is acting weird.
 
 Feel free to look at the ini files but I advice against editing anything in them as they keep settings and may not load the setting next time.
 
