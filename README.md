@@ -1,12 +1,10 @@
 I have been working on this program for a few weeks now, im a new programmer, and im happy to share it with the world. I made this cause I keep having issues with torrent engines updating and breaking the rss feed downloader or the rss feed downloader being spotty on what it grabs.
 
-The link provided goes to a mega drive that has pictures of the program and what it offers.
-
 I would call this something like flexget but stripped down and very plug and play.
 
+--------------------------------------------------------------------------------------------------------------------------------------------
 
-
-What it can do:
+<strong>What it can do:</strong>
 
 \-Parse public rss feeds and filter them out based on predetermined/custom words.
 
@@ -26,6 +24,7 @@ What it can do:
 
 \-Only 35mb on idle and only goes up 1-3mb per url added.
 
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 LIMITS:
 
@@ -42,6 +41,7 @@ Bugs (To the best of my knowledge):
 
 \-Typos… 
 
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 How To:
 
@@ -58,6 +58,7 @@ How To:
 6) enjoy the program grabbing and downloading the tor files for you
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 Plans for the future:
 
@@ -69,6 +70,7 @@ Plans for the future:
 
 \-Figure out magnet rss feeds (low chance due to no idea how to decode the things)
 
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 Note: the Update error was something I used to see when a rss feed could parse but the rss feed itself was not parsing correctly. AKA the url works but the rss feed is acting weird.
 
