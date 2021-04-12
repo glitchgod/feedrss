@@ -40,6 +40,8 @@ I would call this something like flexget but stripped down and very plug and pla
 
 \-Small delay of the parsing timer restarting and the files appearing.
 
+\-Using VNC and so far only VNC does weird things to keyboard input.
+
 \-Typos… 
 
 --------------------------------------------------------------------------------------------------------------------------------------------
@@ -72,7 +74,9 @@ I would call this something like flexget but stripped down and very plug and pla
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-<strong>Note:</strong> the Update error was something I used to see when a rss feed could parse but the rss feed itself was not parsing correctly. AKA the url works but the rss feed is acting weird.
+<strong>Note:</strong> The Update error was something I used to see when a rss feed could parse but the rss feed itself was not parsing correctly. AKA the url works but the rss feed is acting weird.
+
+<strong>Note 2:</strong> Dont forget to fix the permissions to allow it to be executed.
 
 Feel free to look at the ini files but I advice against editing anything in them as they keep settings and may not load the setting next time.
 
