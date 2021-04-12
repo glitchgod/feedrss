@@ -10,10 +10,6 @@ array_of_2[0]="";
 actual_link="";
 //file_name="";
 
-//restart the program after a time.
-restart_whole_thing = 0
-restart_whole_thing = 10
-
 //timer that resets when to do a url pull
 timer_minutes_constant=0;
 timer_minutes_constant=room_speed*60;
@@ -58,7 +54,7 @@ no_vids_over_20year=0
 //load stats file
 if file_exists("/home/ubuntu/.config/feedrss/"+"tool_stats.ini"){
     ini_open("/home/ubuntu/.config/feedrss/"+"tool_stats.ini");
-    timer_minutes=ini_read_real("settings","minutes",1);
+    timer_minutes=ini_read_real("settings","minutes",5);
     last_downloaded_amount=ini_read_real("stats","last_download_total",0);
     last_updated=ini_read_string("stats","last_update_time","00:00:00");
     save_file_location=ini_read_string("stats","save_file_location","");
@@ -93,7 +89,7 @@ if file_exists("/home/ubuntu/.config/feedrss/"+"ignore_list.ini")=true{
     grabber.no_vids_over_1year = ini_read_real("no_vids_over_1year","no_vids_over_1year",0);
     grabber.no_vids_over_5year = ini_read_real("no_vids_over_5year","no_vids_over_5year",0);
     grabber.no_vids_over_20year = ini_read_real("no_vids_over_20year","no_vids_over_20year",0);
-    grabber.only_movies = ini_read_real("only_movies","only_movies",1);
+    grabber.only_movies = ini_read_real("only_movies","only_movies",0);
     
     if total_ignore>0 {
     for (c=0; c<total_ignore;c++) {

@@ -1,7 +1,3 @@
-if restart_whole_thing = 0 {
-    //game_restart();
-}
-
 ///update timer_live
 var timer_live_inprogress = alarm[0]/room_speed
 
