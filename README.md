@@ -52,7 +52,7 @@ I would call this something like flexget but stripped down and very plug and pla
 
 3)Click ok and go to edit filtered word list and type in the number for the premade groups or add your own and click ok.
 
-4)Adjust timer to be more than 1 minute
+4)Adjust timer to be more than 5 minutes , I suggest to set it at 30.
 
 5)Change the destination of the torrents by clicking on the folder. The destination must be the full path /home/… without short cuts such as ~ and must end with / .
 
