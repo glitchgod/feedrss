@@ -81,13 +81,28 @@ function find_the_link(argument0, argument1) {
 	         category_end=string_pos(string("</category>"), section_found)-category_start;
 	         categoryout= string_copy(section_found,category_start,category_end);
 			if grabber.only_movies = 1 {
-				var temp_see=0;
-				temp_see = string_pos(string_lower("movies"), string(string_lower(categoryout)));
-				temp_see = string_pos(string_lower("movie"), string(string_lower(categoryout)));
-				temp_see = string_pos(string_lower("video"), string(string_lower(categoryout)));
-				temp_see = string_pos(string_lower("videos"), string(string_lower(categoryout)));
-				temp_see = string_pos(string_lower(""), string(string_lower(categoryout)));
-				temp_see = string_pos(string_lower(" "), string(string_lower(categoryout)));
+				temp_see=0;
+				
+				//compare the text to categoryout and set to 1 if the category is allowed
+				if temp_see =0 {
+					temp_see = string_pos(string_lower("movies"), string(string_lower(categoryout)));
+				}
+				if temp_see =0 {
+					temp_see = string_pos(string_lower("movie"), string(string_lower(categoryout)));
+				}	
+				if temp_see =0 {
+					temp_see = string_pos(string_lower("video"), string(string_lower(categoryout)));
+				}	
+				if temp_see =0 {
+					temp_see = string_pos(string_lower("videos"), string(string_lower(categoryout)));
+				}	
+				if temp_see =0 {
+					temp_see = string_pos(string_lower(""), string(string_lower(categoryout)));
+				}	
+				if temp_see =0 {
+					temp_see = string_pos(string_lower(" "), string(string_lower(categoryout)));
+				}
+				
 				if temp_see=1 {
 					verify=0;
 				}
@@ -101,8 +116,8 @@ function find_the_link(argument0, argument1) {
 	        categoryout=("NA");
 	    }
 	    // category but filtered
-	    if string_count( "<category>", section_found )<=0 && verify != 0{
-	        categoryout=(categoryout + string("NOT DOWNLOADED DUE TO FILTER SETTINGS"));
+	    if string_count( "<category>", section_found )>0 && verify != 0{
+	        categoryout=(categoryout + string(" NOT DOWNLOADED DUE TO FILTER SETTINGS"));
 	    }
     
 	    //find the linkout
@@ -116,8 +131,8 @@ function find_the_link(argument0, argument1) {
 	        linkout= ("No Link Found");
 	    }
 	    //yes linkout filt says dont add
-	    if string_count( "<link>", section_found )<=0 && verify != 0{
-	        linkout= linkout + string("NOT DOWNLOADED DUE TO FILTER SETTINGS");
+	    if string_count( "<link>", section_found )>0 && verify != 0{
+	        linkout= linkout + string(" NOT DOWNLOADED DUE TO FILTER SETTINGS");
 	    }
     
 	    //find the pubDate

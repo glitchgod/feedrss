@@ -17,10 +17,7 @@ for (s=0; s<(array_length_1d(global.url_1_response)-1) ;s++){
 		        array_of_1=0;
             
 		        download_rss_array();
-            
-		        //decrease  restart_whole_thing so after so long it restarts and cleans the memory
-		        restart_whole_thing --;
-            
+				
 		        //update file stats
 		        if file_exists("/home/ubuntu/.config/feedrss/"+"tool_stats.ini")= false{
 		            tool_stats_file = ini_open("/home/ubuntu/.config/feedrss/"+"tool_stats.ini");

@@ -8,6 +8,7 @@ function download_rss_array() {
 
 	    for ( z = 0; z < num_of_entries-1; z++;){
 	        if array_length_2d(array_of_2,z)=2{
+				actual_link=-1; //reset the link per cycle
 	            global.download_link=array_of_2[z,0];
 				if os_type = os_windows{
 					if grabber.save_file_location="" {
