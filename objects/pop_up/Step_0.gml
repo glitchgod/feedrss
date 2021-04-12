@@ -1,7 +1,7 @@
 /// @description text from keyboard
 
 
-global.folder_folder=filename_dir("/home/ubuntu/.config/feedrss/"+"tool_stats.ini");
+global.folder_folder=filename_dir(string(working_directory)+"tool_stats.ini");
 
 if pop_up_type  !=3 {
 	//backspace text input

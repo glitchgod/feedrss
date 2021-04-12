@@ -110,8 +110,8 @@ for (d=0;d<array_length_1d(url_list);d++){
 last_updated=date_datetime_string(date_current_datetime());
 
 //update file stats
-if file_exists("/home/ubuntu/.config/feedrss/"+"tool_stats.ini"){
-    tool_stats_file = ini_open("/home/ubuntu/.config/feedrss/"+"tool_stats.ini");
+if file_exists(string(working_directory)+"tool_stats.ini"){
+    tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
     ini_write_string("stats","last_update_time",last_updated);
     ini_close(); 
 

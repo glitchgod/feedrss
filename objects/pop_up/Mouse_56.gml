@@ -66,13 +66,13 @@ if mouse_x>=24 and mouse_x <= room_width-(room_width/2)-28{
 				input_text=input_text+"/"
 			}
 			grabber.save_file_location=string(input_text);
-			ini_open("/home/ubuntu/.config/feedrss/"+"tool_stats.ini")
+			ini_open(string(working_directory)+"tool_stats.ini")
 			ini_write_string("stats","save_file_location",grabber.save_file_location);
 			ini_close(); 
         }
 		if string_count("resetdirectory",input_text){
 			grabber.save_file_location="";
-			ini_open("/home/ubuntu/.config/feedrss/"+"tool_stats.ini")
+			ini_open(string(working_directory)+"tool_stats.ini")
 			ini_write_string("stats","save_file_location","");
 			ini_close(); 
 			

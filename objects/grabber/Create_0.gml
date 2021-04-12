@@ -47,13 +47,19 @@ only_movies=0
 no_vids_over_1year=0
 no_vids_over_5year=0
 no_vids_over_20year=0
+
+
+//update info
+version_current="";
+version_current="1.0.3";
+
 //---------------------------------------------------------------------------------
 ///setup files if nothing is there
 //---------------------------------------------------------------------------------
 
 //load stats file
-if file_exists("/home/ubuntu/.config/feedrss/"+"tool_stats.ini"){
-    ini_open("/home/ubuntu/.config/feedrss/"+"tool_stats.ini");
+if file_exists(string(working_directory)+"tool_stats.ini"){
+    ini_open(string(working_directory)+"tool_stats.ini");
     timer_minutes=ini_read_real("settings","minutes",5);
     last_downloaded_amount=ini_read_real("stats","last_download_total",0);
     last_updated=ini_read_string("stats","last_update_time","00:00:00");
@@ -61,10 +67,15 @@ if file_exists("/home/ubuntu/.config/feedrss/"+"tool_stats.ini"){
     ini_close(); 
 
 }
+	file = file_text_open_write(working_directory + "test.txt");
+	file_text_write_string(file, "test to see if here");
+	file_text_close(file);
+	
+
 
 //load url list file
-if file_exists("/home/ubuntu/.config/feedrss/"+"url_list.ini")=true{
-    ini_open("/home/ubuntu/.config/feedrss/"+"url_list.ini");
+if file_exists(string(working_directory)+"url_list.ini")=true{
+    ini_open(string(working_directory)+"url_list.ini");
     Url_count=ini_read_real("Amountofurl","Urlcount",0);
 	for (r=0; r<real(Url_count);r++) {
 	    grabber.url_list[r] = ini_read_string("Amountofurl",r,-1);
@@ -73,8 +84,8 @@ if file_exists("/home/ubuntu/.config/feedrss/"+"url_list.ini")=true{
 }
 
 //load ignore list
-if file_exists("/home/ubuntu/.config/feedrss/"+"ignore_list.ini")=true{
-    ini_open("/home/ubuntu/.config/feedrss/"+"ignore_list.ini");
+if file_exists(string(working_directory)+"ignore_list.ini")=true{
+    ini_open(string(working_directory)+"ignore_list.ini");
     var total_ignore=ini_read_real("Amount of ignore","Ignore_count",0);
     
     grabber.russian_on = ini_read_real("russian_on","russian_on",0);
