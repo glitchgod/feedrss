@@ -10,8 +10,8 @@ if mouse_x>=24 and mouse_x <= room_width-(room_width/2)-28{
 			
 			//setup active_url_list
 			grabber.active_url_list=0;
-			 for (q=0;q<array_length_1d(grabber.url_list); q++){
-	                if string_length(grabber.url_list[q])>1{
+			 for (q=0;q<array_height_2d(grabber.url_list); q++){
+	                if string_length(grabber.url_list[q,0])>1{
 						grabber.active_url_list++;
 						}
 					}
@@ -25,8 +25,8 @@ if mouse_x>=room_width-(room_width/2)+28 and mouse_x <= room_width-28{
     if (mouse_y >= room_height-(room_height/8)) and (mouse_y <= room_height-(room_height/8)+48) {
         if pop_up_type =0{//setup active_url_list
 			grabber.active_url_list=0;
-			 for (q=0;q<array_length_1d(grabber.url_list); q++){
-	                if string_length(grabber.url_list[q])>1{
+			 for (q=0;q<array_height_2d(grabber.url_list); q++){
+	                if string_length(grabber.url_list[q,0])>1{
 						grabber.active_url_list++;
 						}
 			}

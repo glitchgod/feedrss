@@ -102,9 +102,9 @@ if array_length_1d(ignore_list)>0{
 last_downloaded_amount=0
 total_errors=0
 global.url_1_response[0]=-1;
-for (d=0;d<array_length_1d(url_list);d++){
-	if http_get(url_list[d])>0{
-	    global.url_1_response[d]=http_get(url_list[d]);
+for (d=0;d<array_height_2d(url_list);d++){
+	if http_get(url_list[d,0])>0{
+	    global.url_1_response[d,0]=http_get(url_list[d,0]);
 		}
     }
 last_updated=date_datetime_string(date_current_datetime());

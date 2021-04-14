@@ -14,7 +14,7 @@ actual_link="";
 timer_minutes_constant=0;
 timer_minutes_constant=room_speed*60;
 timer_minutes=0;
-timer_minutes=1;
+timer_minutes=5;
 timer_live="";
 
 //stats to what the program has done
@@ -24,6 +24,8 @@ last_updated="";
 last_downloaded_amount=0;
 //--also timer_minutes gets loaded to--//
 url_list[0]="";
+url_list[0,0]="";
+url_list[0,1]="";
 active_url_list=0;
 ignore_list[0]=""
 Url_count=0;
@@ -51,7 +53,18 @@ no_vids_over_20year=0
 
 //update info
 version_current="";
-version_current="1.0.3";
+version_current="1.0.5"
+version_check="";
+hour_check=0;
+hour_check= current_hour;
+github_grab_id="";
+github_grab="";
+is_update=0;
+
+//run update at start with delay
+alarm[1]=room_speed*3;
+
+
 
 //---------------------------------------------------------------------------------
 ///setup files if nothing is there
@@ -67,18 +80,15 @@ if file_exists(string(working_directory)+"tool_stats.ini"){
     ini_close(); 
 
 }
-	file = file_text_open_write(working_directory + "test.txt");
-	file_text_write_string(file, "test to see if here");
-	file_text_close(file);
-	
-
 
 //load url list file
 if file_exists(string(working_directory)+"url_list.ini")=true{
     ini_open(string(working_directory)+"url_list.ini");
     Url_count=ini_read_real("Amountofurl","Urlcount",0);
 	for (r=0; r<real(Url_count);r++) {
-	    grabber.url_list[r] = ini_read_string("Amountofurl",r,-1);
+	    grabber.url_list[r,0] = ini_read_string("Amountofurl",r,-1);
+		grabber.url_list[r,1] = ini_read_string("Amountofurl",string(r)+string("_issue"),"None");
+		
 	    }
 	ini_close(); 
 }

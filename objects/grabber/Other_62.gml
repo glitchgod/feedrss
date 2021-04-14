@@ -1,2 +1,2 @@
 http_multi_url();
-update_github_check();
+update_github_check()
