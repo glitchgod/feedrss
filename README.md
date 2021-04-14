@@ -77,9 +77,7 @@ Current Version = 1.0.5
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
-<strong>Note:</strong> The Update error was something I used to see when a rss feed could parse but the rss feed itself was not parsing correctly. AKA the url works but the rss feed is acting weird.
-
-<strong>Note 2:</strong> Dont forget to fix the permissions to allow it to be executed.
+<strong>Note:</strong> Dont forget to <strong>fix the permissions</strong> to allow it to be executed.
 
 Feel free to look at the ini files but I advice against editing anything in them as they keep settings and may not load the setting next time.
 
