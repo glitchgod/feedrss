@@ -1,4 +1,4 @@
-I have been working on this program for a few weeks now, im a new programmer, and im happy to share it with the world. I made this cause I keep having issues with torrent engines updating and breaking the rss feed downloader or the rss feed downloader being spotty on what it grabs.
+I have been working on this program for a few weeks now, I'm a new programmer, and im happy to share it with the world. I made this cause I keep having issues with torrent engines updating and breaking the rss feed downloader or the rss feed downloader being spotty on what it grabs.
 
 I would call this something like flexget but stripped down and very plug and play.
 
@@ -29,6 +29,8 @@ Current Version = 1.0.5
 
 \-Compare ini file to see if file was previously downloaded.
 
+\-Built in update notifier.
+
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 <strong>LIMITS:</strong>
@@ -42,8 +44,6 @@ Current Version = 1.0.5
 \-If the rss feed is more than 1,000 torrents the program locks up for multiple minutes but does pull through eventually.
 
 \-Small delay of the parsing timer restarting and the files appearing.
-
-\-Using VNC and so far only VNC does weird things to keyboard input.
 
 \-Typos… 
 
@@ -61,7 +61,7 @@ Current Version = 1.0.5
 
 5)Change the destination of the torrents by clicking on the folder. The destination must be the full path /home/… without short cuts such as ~ and must end with / .
 
-6) enjoy the program grabbing and downloading the tor files for you
+6)enjoy the program grabbing and downloading the tor files for you
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -73,12 +73,12 @@ Current Version = 1.0.5
 
 \-Add in private rss feeds (Low chance due to no access to one)
 
-\-Figure out magnet rss feeds (low chance due to no idea how to decode the things)
+\-Figure out magnet rss feeds (Low chance due to no idea how to decode the things)
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 <strong>Note:</strong> Dont forget to <strong>fix the permissions</strong> to allow it to be executed.
-
+<strong>Note 2:</strong> Using VNC and so far only VNC does weird things to keyboard input.
 Feel free to look at the ini files but I advice against editing anything in them as they keep settings and may not load the setting next time.
 
 
