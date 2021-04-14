@@ -3,6 +3,9 @@ I have been working on this program for a few weeks now, im a new programmer, an
 I would call this something like flexget but stripped down and very plug and play.
 
 --------------------------------------------------------------------------------------------------------------------------------------------
+Current Version = 1.0.4
+
+--------------------------------------------------------------------------------------------------------------------------------------------
 
 <strong>What it can do:</strong>
 
