@@ -27,7 +27,7 @@ function file_sorter(argument0, argument1) {
 	        //title_first_letter = string_char_at(j, 1);
         
 	        //file processing
-	        ini_open("/home/ubuntu/.config/feedrss/"+"torrents_downloaded.ini");
+	        ini_open(string(working_directory)+"torrents_downloaded.ini");
         
 	        //see if it already there
 	        if ini_section_exists(j){

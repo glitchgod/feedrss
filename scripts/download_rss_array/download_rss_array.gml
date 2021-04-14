@@ -21,7 +21,7 @@ function download_rss_array() {
 				if os_type = os_linux{
 					//grabber.save_file_location=""
 					if grabber.save_file_location="" {
-						actual_link= http_get_file(global.download_link,string("/home/ubuntu/.config/feedrss/files/")+string(array_of_2[z,1])+".torrent"); 
+						actual_link= http_get_file(global.download_link,string(working_directory)+string("files/")+string(array_of_2[z,1])+".torrent"); 
 					}
 					if grabber.save_file_location!="" {
 						//actual_link= http_get_file(global.download_link,string("/home/ubuntu/.config/bob/")+"files/"+string(array_of_2[z,1])+".torrent"); 

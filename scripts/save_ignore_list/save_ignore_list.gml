@@ -1,7 +1,7 @@
 /// @description save_ignore_list
 function save_ignore_list() {
 
-	ini_open("/home/ubuntu/.config/feedrss/"+"ignore_list.ini");
+	ini_open(string(working_directory)+"ignore_list.ini");
 	total_ignore_list = real(array_length_1d(grabber.ignore_list));
 	ini_write_real("Amount of ignore","Ignore_count",array_length_1d(grabber.ignore_list));
 

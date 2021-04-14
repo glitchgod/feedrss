@@ -103,7 +103,7 @@ function find_the_link(argument0, argument1) {
 					temp_see = string_pos(string_lower(" "), string(string_lower(categoryout)));
 				}
 				
-				if temp_see=1 {
+				if temp_see!=0 {
 					verify=0;
 				}
 				if temp_see=0 {
@@ -133,6 +133,11 @@ function find_the_link(argument0, argument1) {
 	    //yes linkout filt says dont add
 	    if string_count( "<link>", section_found )>0 && verify != 0{
 	        linkout= linkout + string(" NOT DOWNLOADED DUE TO FILTER SETTINGS");
+	    }
+	    //Filter out magnet links
+	    if string_count( "magnet:?xt",string_lower(linkout) )>0 {
+	        linkout= string("MAGNET LINKS CAN NOT BE PROCESSED");
+			verify = 1;
 	    }
     
 	    //find the pubDate
