@@ -1,7 +1,7 @@
 function http_multi_url(){
-	if is_array(global.url_1_response)=true{
+	if is_array(global.url_1_response)=true{		
 	for (s=0; s<(array_length_1d(global.url_1_response)-1) ;s++){
-		if ds_map_find_value(async_load, "id") == global.url_1_response[s]{
+		if ds_map_find_value(async_load, "id") == (global.url_1_response[s,0]-1){
 			if ds_map_find_value(async_load, "status") == 0{
 			    //updated
 			    raw_1_output = ds_map_find_value(async_load, "result");
@@ -45,9 +45,9 @@ function http_multi_url(){
 				url_list[s,1]="WEBSITE REPORTS ERROR, WEBSITE CODE: "+string(ds_map_find_value(async_load, "http_status"));
 			    total_errors++
 			    }
-		global.url_1_response[s]= -1;
+		global.url_1_response[s,0]= -1;
+		continue;
 		}
-	
 	}
 	//download file call
 	if ds_map_find_value(async_load, "id") == actual_link{
