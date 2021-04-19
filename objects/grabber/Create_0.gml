@@ -8,6 +8,8 @@ array_of_issues[0]="";
 global.download_link="";
 array_of_2[0]="";
 actual_link="";
+
+currently_downloading=0;
 //file_name="";
 
 //timer that resets when to do a url pull
@@ -53,7 +55,7 @@ no_vids_over_20year=0
 
 //update info
 version_current="";
-version_current="1.0.5"
+version_current="1.0.6"
 version_check="";
 hour_check=0;
 hour_check= current_hour;

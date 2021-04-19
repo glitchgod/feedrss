@@ -15,7 +15,7 @@ draw_rectangle_colour(0,room_height-(room_height/4)-2,room_width,room_height,c_l
 //top of popup overflow box
 draw_rectangle_colour(0,0,room_width,1,c_ltgray,c_ltgray,c_ltgray,c_ltgray,0)
 
-if pop_up_type  !=3 {
+if (pop_up_type  !=3)  && (pop_up_type  !=4){
 	draw_rectangle_colour(24,room_height-(room_height/8)-48,room_width-28,room_height-(room_height/8)-12,c_white,c_white,c_white,c_white,0)
 	draw_rectangle_colour(24,room_height-(room_height/8)-48,room_width-28,room_height-(room_height/8)-12,c_black,c_black,c_black,c_black,1)
 
@@ -39,7 +39,7 @@ draw_set_font(font2);
 draw_set_color(c_black);
 draw_text(96,room_height-(room_height/8)-2,string_hash_to_newline("OK"));
 
-if pop_up_type  !=3 {
+if (pop_up_type  !=3) && (pop_up_type  !=4){
 	//cancel box
 	draw_rectangle_colour(room_width-(room_width/2)+28,room_height-(room_height/8),room_width-28,room_height-(room_height/8)+48,c_red,c_red,c_red,c_red,0)
 	draw_rectangle_colour(room_width-(room_width/2)+28,room_height-(room_height/8),room_width-28,room_height-(room_height/8)+48,c_black,c_black,c_black,c_black,1)

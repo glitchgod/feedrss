@@ -101,4 +101,12 @@ if mouse_x>=24 and mouse_x <= room_width-(room_width/2)-28{
     }
 }
 
-
+//type 4 (History)
+//ok
+if mouse_x>=24 and mouse_x <= room_width-(room_width/2)-28{
+    if (mouse_y >= room_height-(room_height/8)) and (mouse_y <= room_height-(room_height/8)+48) {
+        if pop_up_type =4{
+            instance_destroy(self)
+        }
+    }
+}

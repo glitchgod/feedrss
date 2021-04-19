@@ -104,10 +104,12 @@ total_errors=0
 global.url_1_response[0]=-1;
 for (d=0;d<array_height_2d(url_list);d++){
 	if http_get(url_list[d,0])>0{
+		grabber.currently_downloading=1;
 	    global.url_1_response[d,0]=http_get(url_list[d,0]);
 		}
     }
 last_updated=date_datetime_string(date_current_datetime());
+last_updated=string_delete(last_updated,28,string_length(last_updated)-26);
 
 //update file stats
 if file_exists(string(working_directory)+"tool_stats.ini"){
@@ -117,6 +119,6 @@ if file_exists(string(working_directory)+"tool_stats.ini"){
 
 }
 
-
+grabber.currently_downloading=0
 alarm[0]=timer_minutes_constant*timer_minutes;
 
