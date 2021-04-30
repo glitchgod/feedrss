@@ -1,4 +1,4 @@
-I have been working on this program for a few weeks now, I'm a new programmer, and im happy to share it with the world. I made this cause I keep having issues with torrent engines updating and breaking the rss feed downloader or the rss feed downloader being spotty on what it grabs.
+ I made this cause I keep having issues with torrent engines updating and breaking the rss feed downloader or the rss feed downloader being spotty on what it grabs.
 
 I would call this something like flexget but stripped down and very plug and play.
 
@@ -9,9 +9,9 @@ Current Version = 1.0.7
 
 <strong>What it can do:</strong>
 
-\-Parse public rss feeds and filter them out based on predetermined/custom words.
+\-Parse public rss feeds and filter them out based on premade groups types, premade words, and your custom words.
 
-\-Parses up to 100 torrents per rss feed. (It can handle more but I found 100 works best)
+\-Parses up to 100 torrents per rss feed at a time. 
 
 \-Custom words that a standard English keyboard allows.
 
@@ -27,9 +27,11 @@ Current Version = 1.0.7
 
 \-Only 35mb on idle and only goes up 1-3mb per url added.
 
-\-Compare ini file to see if file was previously downloaded.
+\-Compare a history in file to see if file was previously downloaded.
 
 \-Built in update notifier.
+
+\-Torrents download one after another in order to stay low on memory usage.
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -41,9 +43,8 @@ Current Version = 1.0.7
 
 <strong>Bugs</strong> (To the best of my knowledge):
 
-\-If the rss feed is more than 1,000 torrents the program locks up for multiple minutes but does pull through eventually.
+\-If the rss feed is more than 1,500 torrents the program locks up for multiple minutes but does pull through eventually.
 
-\-Small delay of the parsing timer restarting and the files appearing.
 
 \-Typos… 
 
@@ -57,7 +58,7 @@ Current Version = 1.0.7
 
 3)Click ok and go to edit filtered word list and type in the number for the premade groups or add your own and click ok.
 
-4)Adjust timer to be more than 5 minutes , I suggest to set it at 30.
+4)Adjust timer to be more delay time, I suggest to set it at least 30.
 
 5)Change the destination of the torrents by clicking on the folder. The destination must be the full path /home/… without short cuts such as ~ and must end with / .
 
@@ -67,13 +68,11 @@ Current Version = 1.0.7
 
 <strong>Plans for the future:</strong>
 
-\-Improve filtering out already downloaded (possible)
-
 \-Explain how to edit the ini files for easier setup (possible)
 
 \-Add in private rss feeds (Low chance due to no access to one)
 
-\-Figure out magnet rss feeds (Low chance due to no idea how to decode the things)
+\-Figure out magnet rss feeds (VERY Low chance due to no idea how to decode the things)
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 
