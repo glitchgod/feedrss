@@ -5,6 +5,8 @@ I would call this something like flexget but stripped down and very plug and pla
 <hr>
 </hr>
 Current Version = 1.0.7
+<h2><strong>What it does:</strong></h2>
+This program doesnt edit,change, or effect your torrent downloader of choice, such as qbittorrent. What this program does is be an alternative to the torrent engines built in rss feed downloader. This is a seperat program and thus no manipulation to torrent engines is needed.
 <h2><strong>What it can do:</strong></h2>
 
 -Parse public rss feeds and filter them out based on premade groups, premade words, and your custom words.
