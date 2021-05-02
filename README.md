@@ -1,17 +1,10 @@
 <h1>feedrss : A simple to rss feed manager for .tor files</h1>
-<hr>
-</hr>
 <h3>Story behind why I made this:</h3>
-<hr>
-</hr>
 I made this program as I keep having issues with torrent engines updating and breaking their builtin rss feed downloader or the rss feed downloader being spotty on what it grabs. Being fed up with this I made a program in GML (Game Maker Language) that I feel is easy to use and easy to understand.
 I would call this something like flexget but stripped down and very plug and play.
 <hr>
 </hr>
 Current Version = 1.0.7
-<hr>
-</hr>
-
 <h2><strong>What it can do:</strong></h2>
 
 -Parse public rss feeds and filter them out based on premade groups, premade words, and your custom words.
@@ -38,17 +31,9 @@ Current Version = 1.0.7
 
 -Torrents download one after another in order to stay low on memory usage.
 
-
-<hr>
-</hr>
-
 <h2>LIMITS:</h2>
 
 *No Magnets (I can’t figure out how to work magnet links since they are encoded)
-
-
-<hr>
-</hr>
 
 <h2>Known Bugs</h2> (To the best of my knowledge):
 
@@ -56,13 +41,7 @@ Current Version = 1.0.7
 
 -Typos… 
 
-<hr>
-</hr>
-
 <h2>How To:</h2>
-
-<hr>
-</hr>
 
 1)Get url of the rss feed (including the https://www.)
 
