@@ -10,6 +10,8 @@ function file_sorter(argument0, argument1) {
 	//download if no issue with ignore list
 	//
 	/////////////////////////////////////////////////*/
+	//reset download count
+	grabber.last_found_amount=0;
 
 
 	//how many entries
@@ -43,7 +45,7 @@ function file_sorter(argument0, argument1) {
             
 	            send_back_link[i,0]=k;
 	            send_back_link[i,1]=j;
-	            grabber.last_downloaded_amount++;
+	            grabber.last_found_amount++;
 	        }
         
 	        //close the file

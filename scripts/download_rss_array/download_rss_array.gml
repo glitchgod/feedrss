@@ -10,6 +10,7 @@ function download_rss_array() {
 	        if array_length_2d(array_of_2,z)=2{
 				actual_link=-1; //reset the link per cycle
 	            global.download_link=array_of_2[z,0];
+				
 				if os_type = os_windows{
 					if grabber.save_file_location="" {
 					actual_link= http_get_file(global.download_link,"\\files\\"+array_of_2[z,1]+".torrent"); 
@@ -29,8 +30,10 @@ function download_rss_array() {
 						var dest=""
 						dest = string(grabber.save_file_location+"files/"+string(array_of_2[z,1])+".torrent");
 					}
+					grabber.last_parse_amount ++
 				}
 	            array_of_2[z] = -1;
+				
 	            }
 	        }
 		    //clear the array to save memory

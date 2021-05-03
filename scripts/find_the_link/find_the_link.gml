@@ -18,6 +18,9 @@ function find_the_link(argument0, argument1) {
 	scanned_items[0]="";
 	current_count=0;
 	max_count=100; //the amount of urls allowed to be processed at a time.... maybe allow customization in future.
+	start_hash_at=0;
+	end_hash_at=0;
+	hash_out="";
 
 	//check off to continue
 	verify=0;
@@ -47,10 +50,10 @@ function find_the_link(argument0, argument1) {
 	        title_end=string_pos(string("</title>"), section_found)-title_start;
 	        titleout= string_copy(section_found,title_start,title_end);
 	        if string_count( "[", titleout )>0{
-	            titleout= string_replace_all(titleout, "[", "(");
+	            titleout= string_replace_all(titleout, "[", " ");
 	            }
 	        if string_count( "]", titleout )>0{
-	            titleout= string_replace_all(titleout, "]", ")");
+	            titleout= string_replace_all(titleout, "]", " ");
 	            }
 	        if string_count( ".", titleout )>0{
 	            titleout= string_replace_all(titleout, ".", " ");
@@ -59,7 +62,10 @@ function find_the_link(argument0, argument1) {
 	        global.test_title =  string(string_replace_all(titleout, ")", ""))
 	        global.test_title =  string(string_replace_all(global.test_title, "(", ""))
 	        verify=0
-        
+			
+			
+			
+			
 	        for (h=0;h<array_length_1d(grabber.full_ignore_list);h++){
 	            global.inside = string(string_lower(grabber.full_ignore_list[h]));
 	            //this causes the for loop to jump back to start if verify is not 0
@@ -68,7 +74,14 @@ function find_the_link(argument0, argument1) {
 	                }
 	            verify = string_pos(string(global.inside), string(string_lower(global.test_title)));
 	            }
-
+			//loop to find the year start then cut off the rest
+			for (m=1900;m<current_year+1;m++){
+				if string_count( string(m), titleout )>0{
+					titleout= string_copy(titleout,1,real(string_pos(string(m),titleout))-2);
+					continue;
+			    }
+				
+			}
 	    }
 	    //no title
 	    if string_count( "<title>", section_found )<=0 {
@@ -136,12 +149,19 @@ function find_the_link(argument0, argument1) {
 	    }
 	    //Filter out magnet links
 	    if string_count( "magnet:?xt",string_lower(linkout) )>0 {
-	        linkout= string("MAGNET LINKS CAN NOT BE PROCESSED");
+			
+			if string_count( "dn=",string_lower(linkout) )>0 {
+				end_hash_at=real(string_pos(string("dn="), linkout))-27; 
+				start_hash_at=real(string_pos(string("dn="), linkout))-45; 
+				hash_out= string_copy(linkout,start_hash_at,end_hash_at);
+				linkout= string("https://itorrents.org/torrent/" + hash_out + ".torrent");
+			}
+	        //linkout= string("MAGNET LINKS CAN NOT BE PROCESSED");
 			verify = 1;
 	    }
     
 	    //find the pubDate
-	    if string_count( "<pubDate>", section_found )>0 && verify = 0{
+	    if string_count( "<pubDate>", section_found )>0{
 	         pubDate_start=string_pos(string("<pubDate>"), section_found)+9; 
 	         pubDate_end=string_pos(string("</pubDate>"), section_found)-pubDate_start;
 	         pubDateout= string_copy(section_found,pubDate_start,pubDate_end);
