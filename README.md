@@ -4,7 +4,7 @@ I made this program as I keep having issues with torrent engines updating and br
 I would call this something like flexget but stripped down and very plug and play.
 <hr>
 </hr>
-Current Version = 1.0.7 <br>
+Current Version = 1.0.8 <br>
 Built ready to go linux packages listed in release section.
 <h2><strong>What it does different from torrent engines :</strong></h2>
 This program doesnt edit,change, or effect your torrent downloader of choice, such as qbittorrent. What this program does is be an alternative to the torrent engines built in rss feed downloader. This is a seperat program and thus no manipulation to torrent engines is needed.
@@ -13,6 +13,8 @@ This program doesnt edit,change, or effect your torrent downloader of choice, su
 -Parse public rss feeds and filter them out based on premade groups, premade words, and your custom words.
 
 -Parses up to 100 torrents per rss feed at a time. 
+
+-Uses itorrents.org as a magnet-to-torrent processor. 
 
 -Custom words that a standard English keyboard allows.
 
@@ -36,7 +38,7 @@ This program doesnt edit,change, or effect your torrent downloader of choice, su
 
 <h2>LIMITS:</h2>
 
-*No Magnets (I can’t figure out how to work magnet links since they are encoded)
+----
 
 <h2>Known Bugs</h2> (To the best of my knowledge):
 
