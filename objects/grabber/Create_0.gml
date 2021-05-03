@@ -23,7 +23,8 @@ timer_live="";
 //total_downloaded=0;
 total_errors=0;
 last_updated="";
-last_downloaded_amount=0;
+last_parse_amount=0;
+last_found_amount=0;
 //--also timer_minutes gets loaded to--//
 url_list[0]="";
 url_list[0,0]="";
@@ -55,7 +56,7 @@ no_vids_over_20year=0
 
 //update info
 version_current="";
-version_current="1.0.6"
+version_current="1.0.8"
 version_check="";
 hour_check=0;
 hour_check= current_hour;
@@ -76,7 +77,8 @@ alarm[1]=room_speed*3;
 if file_exists(string(working_directory)+"tool_stats.ini"){
     ini_open(string(working_directory)+"tool_stats.ini");
     timer_minutes=ini_read_real("settings","minutes",5);
-    last_downloaded_amount=ini_read_real("stats","last_download_total",0);
+    last_parse_amount=ini_read_real("stats","last_parse_amount",0);
+    last_found_amount=ini_read_real("stats","last_found_amount",0);
     last_updated=ini_read_string("stats","last_update_time","00:00:00");
     save_file_location=ini_read_string("stats","save_file_location","");
     ini_close(); 
