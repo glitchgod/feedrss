@@ -1,10 +1,10 @@
 {
   "option_linux_display_name": "feedrss",
-  "option_linux_version": "1.0.6",
+  "option_linux_version": "1.0.8",
   "option_linux_maintainer_email": "",
   "option_linux_homepage": "https://github.com/glitchgod/feedrss",
   "option_linux_short_desc": "feedrss allows the grabbing of rss and download torrent files",
-  "option_linux_long_desc": "The program was made to fix a problem that some torrent engines dont grab properly. The program allows the adding of urls and a generic list of filtering words along with the option of adding in your own words. The program doesnt do magnet info. The program requires an actual url to grab torrent files from.",
+  "option_linux_long_desc": "The program was made to fix a problem that some torrent engines dont grab properly. The program allows the adding of urls and a generic list of filtering words along with the option of adding in your own words.",
   "option_linux_splash_screen": "${options_dir}/linux/splash/splash.png",
   "option_linux_display_splash": false,
   "option_linux_icon": "${options_dir}/linux/icons/icon64.png",
