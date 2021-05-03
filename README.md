@@ -24,7 +24,7 @@ This program doesnt edit,change, or effect your torrent downloader of choice, su
 
 -Custom timer to start the data grab
 
--A UI that says last time updated, amount last downloaded, websites grabbing from, and number of custom words.
+-A UI that says last time updated, amount last downloaded, amount possible to download, and number of custom words.
 
 -A download now button to force a parse of all listed websites
 
