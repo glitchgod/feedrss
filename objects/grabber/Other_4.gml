@@ -51,6 +51,7 @@ russian_letters[36]="Ю";
 russian_letters[37]="ю";
 russian_letters[38]="Я"; 
 russian_letters[39]="я";
+russian_letters[40]="й";
 
 ///china letters
 //china_on=0;
