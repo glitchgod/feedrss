@@ -21,12 +21,20 @@ function find_the_link(argument0, argument1) {
 	start_hash_at=0;
 	end_hash_at=0;
 	hash_out="";
+	start_info_hashed_at=""
+	end_info_hashed_at=""
+	info_hashed_out=""
+	start_enclosure_url=""
+	end_enclosure_url=""
 
 	//check off to continue
 	verify=0;
 	global.test_title="";
 	global.inside="";
-
+	//verify is for filtering
+	//0 - no filter aka proceed 
+	//1 - filter aka dont 
+	
 	//look for the actual data
 	do {
 	    //RESET FOR THE LOOP
@@ -43,6 +51,10 @@ function find_the_link(argument0, argument1) {
 	    //remove the section
 	    current_link=string_replace(current_link, keyword, "<scanned>");
 	    current_link=string_replace(current_link, keyword_end, "</scanned>");
+
+//---------------------------------------------------------------------------------    
+//Process the Title
+//---------------------------------------------------------------------------------    
     
 	    //find the title
 	    if string_count( "<title>", section_found )>0{
@@ -62,9 +74,6 @@ function find_the_link(argument0, argument1) {
 	        global.test_title =  string(string_replace_all(titleout, ")", ""))
 	        global.test_title =  string(string_replace_all(global.test_title, "(", ""))
 	        verify=0
-			
-			
-			
 			
 	        for (h=0;h<array_length_1d(grabber.full_ignore_list);h++){
 	            global.inside = string(string_lower(grabber.full_ignore_list[h]));
@@ -87,6 +96,9 @@ function find_the_link(argument0, argument1) {
 	    if string_count( "<title>", section_found )<=0 {
 	        titleout=("No Title Found");
 	    }
+//---------------------------------------------------------------------------------    
+//Process the Category
+//---------------------------------------------------------------------------------    
 		
 		//find the category
 	    if string_count( "<category>", section_found )>0 && verify = 0{
@@ -124,7 +136,7 @@ function find_the_link(argument0, argument1) {
 				}
 			}
 	    }
-	    //no date category
+//no date category
 	    if string_count( "<category>", section_found )<=0{
 	        categoryout=("NA");
 	    }
@@ -132,23 +144,27 @@ function find_the_link(argument0, argument1) {
 	    if string_count( "<category>", section_found )>0 && verify != 0{
 	        categoryout=(categoryout + string(" NOT DOWNLOADED DUE TO FILTER SETTINGS"));
 	    }
-    
-	    //find the linkout
+//---------------------------------------------------------------------------------    
+//Process the links
+//---------------------------------------------------------------------------------    
+
+	    //find the linkout directly
 	    if string_count( "<link>", section_found )>0 && verify = 0{
 	        link_start=string_pos(string("<link>"), section_found)+6; 
 	        link_end=string_pos(string("</link>"), section_found)-link_start;
 	        linkout= string_copy(section_found,link_start,link_end);
 	    }
-	    //no linkout
-	    if string_count( "<link>", section_found )<=0{
-	        linkout= ("No Link Found");
-	    }
-	    //yes linkout filt says dont add
-	    if string_count( "<link>", section_found )>0 && verify != 0{
-	        linkout= linkout + string(" NOT DOWNLOADED DUE TO FILTER SETTINGS");
-	    }
-	    //Filter out magnet links
-	    if string_count( "magnet:?xt",string_lower(linkout) )>0 {
+		
+		//Filter out hash given links
+		if string_count( "<info_hash>", section_found )>0 && verify = 0{
+	        start_info_hashed_at=string_pos(string("<info_hash>"), section_found)+11; 
+	        end_info_hashed_at=string_pos(string("</info_hash>"), section_found)-start_info_hashed_at;
+	        info_hashed_out= string_copy(section_found,start_info_hashed_at,end_info_hashed_at);
+			linkout= string("https://itorrents.org/torrent/" + info_hashed_out + ".torrent");
+			}
+		
+	    //Filter out direct magnet links
+	    if string_count( "magnet:?xt",string_lower(linkout) )>0  && verify = 0{
 			
 			if string_count( "dn=",string_lower(linkout) )>0 {
 				end_hash_at=real(string_pos(string("dn="), linkout))-27; 
@@ -156,10 +172,34 @@ function find_the_link(argument0, argument1) {
 				hash_out= string_copy(linkout,start_hash_at,end_hash_at);
 				linkout= string("https://itorrents.org/torrent/" + hash_out + ".torrent");
 			}
-	        //linkout= string("MAGNET LINKS CAN NOT BE PROCESSED");
-			verify = 1;
+			else {
+				linkout= string("Misformed magnet link ");
+			}
 	    }
-    
+		/*
+	start_enclosure_url=""
+	end_enclosure_url=""*/
+		//Filter out embeded links
+		if string_count( "<enclosure url=", section_found )>0 && verify = 0{
+	        start_enclosure_url=string_pos(string("<enclosure url="), section_found)+16; 
+	        end_enclosure_url=string_pos(string(".torrent"), section_found)-start_enclosure_url+8;
+	        //end_enclosure_url=string_pos(string(".torrent"), section_found)-link_start+8;
+	        linkout= string_copy(section_found,start_enclosure_url,end_enclosure_url);
+			}
+		
+		
+	    //no link Found
+	    if string_count( "<link>", section_found )<=0 && string_count( "<info_hash>", section_found )<=0{
+	        linkout= ("No Link Found");
+	    }
+	    //yes linkout filter says dont add
+	    if string_count( "<link>", section_found )>0 && verify != 0{
+	        linkout= linkout + string(" NOT DOWNLOADED DUE TO FILTER SETTINGS");
+	    }
+//---------------------------------------------------------------------------------    
+//Process the pubDate
+//---------------------------------------------------------------------------------    
+
 	    //find the pubDate
 	    if string_count( "<pubDate>", section_found )>0{
 	         pubDate_start=string_pos(string("<pubDate>"), section_found)+9; 
@@ -176,6 +216,9 @@ function find_the_link(argument0, argument1) {
 	    if string_count( "<pubDate>", section_found )<=0{
 	        pubDateout=("NA");
 	    }
+//---------------------------------------------------------------------------------    
+//Final Process
+//---------------------------------------------------------------------------------    
     
 	    
 	    /*if verify = 0*/{
