@@ -1,73 +1,74 @@
 <h1>feedrss : A simple to rss feed manager for .tor files</h1>
 <h3>Story behind why I made this:</h3>
-I made this program as I keep having issues with torrent engines updating and breaking their builtin rss feed downloader or the rss feed downloader being spotty on what it grabs. Being fed up with this I made a program in GML (Game Maker Language) that I feel is easy to use and easy to understand.
-I would call this something like flexget but stripped down and very plug and play.
+I made this program as I keep having issues with torrent engines updating and breaking their builtin rss feed downloader or the rss feed downloader being spotty on what it grabs. Being fed up with this I made a program in GML (Game Maker Language) that I feel is easy to use and easy to understand.<br>
+I would call this something like flexget but very easy plug and play.
 <hr>
 </hr>
 Current Version = 1.1.0 <br>
 Built ready to go linux packages listed in release section.
 <h2><strong>What it does different from torrent engines :</strong></h2>
-This program doesnt edit,change, or effect your torrent downloader of choice, such as qbittorrent. What this program does is be an alternative to the torrent engines built in rss feed downloader. This is a seperat program and thus no manipulation to torrent engines is needed.
+This program doesnt edit, change, or effect your torrent downloader of choice, such as qbittorrent. What this program does is be an alternative to the torrent engines built in rss feed downloader. This is a seperat program and thus no manipulation to torrent engines is needed beyond setting the torrent downloader of choice to load .torrent files from a folder.
 <h2><strong>What it can do:</strong></h2>
 
--Parse public rss feeds and filter them out based on premade groups, premade words, and your custom words.
+- Parse public rss feeds and filter them out based on premade groups, premade words, and your custom words.
 
--Parses up to 100 torrents per rss feed at a time. 
+- Parses up to 100 torrents per rss feed at a time. 
 
--Uses itorrents.org as a magnet-to-torrent processor. 
+- Uses itorrents.org as a magnet-to-torrent processor. 
 
--Custom words that a standard English keyboard allows.
+- Custom words that a standard English keyboard allows.
 
--12 Premade filter rules such as publish date, xxx terms, Chinese characters, and more detailed in wiki.
+- 12 Premade filter rules such as publish date, xxx terms, Chinese characters, and more detailed in wiki.
 
--Allows custom download location 
+- Allows custom download location 
 
--Custom timer to start the data grab
+- Custom timer to start the data grab
 
--A UI that says last time updated, amount last downloaded, amount possible to download, and number of custom words.
+- A UI that says last time updated, amount last downloaded, amount possible to download, and number of custom words.
 
--A download now button to force a parse of all listed websites
+- A download now button to force a parse of all listed websites
 
--Only 35mb on idle and only goes up 1-3mb per url added.
+- Only 35mb on idle and only goes up 1-3mb per url added.
 
--Compare feed to past downloads to improve less duplicates.
+- Compare feed to past downloads to improve less duplicates.
 
--Built in update notifier.
+- Built in update notifier.
 
--Torrents download one after another in order to stay low on memory usage.
+- Torrents download one after another in order to stay low on memory usage.
 
 <h2>LIMITS:</h2>
--Adding foreign characters to the filter list needed to be added via ini file.
+
+- Adding foreign characters to the filter list needed to be added via ini file.
 
 <h2>Known Bugs</h2> (To the best of my knowledge):
 
--If a rss feed is more than 1,500 torrents the program locks up for multiple minutes but <strong>does</strong> pull through eventually.
+- If a rss feed is more than 1,500 torrents the program locks up for multiple minutes but <strong>does</strong> pull through eventually.
 
--Typos… 
+- Typos… 
 
 <h2>How To:</h2>
 
-1)Get url of the rss feed (including the https://www.)
+1) Get url of the rss feed (including the https://www.)
 
-2)click on pencil next to edit website list and manually type in the full url. (sorry don’t know how to copy paste for linux)
+2) click on pencil next to edit website list and manually type in the full url. (sorry don’t know how to copy paste for linux)
 
-3)Click ok and go to edit filtered word list and type in the number for the premade groups or add your own and click ok.
+3) Click ok and go to edit filtered word list and type in the number for the premade groups or add your own and click ok.
 
-4)Adjust timer to be more delay time, I suggest to set it at least 30.
+4) Adjust timer to be more delay time, I suggest to set it at least 30.
 
-5)Change the destination of the torrents by clicking on the folder. The destination must be the full path /home/… without short cuts such as ~ and must end with / .
+5) Change the destination of the torrents by clicking on the folder. The destination must be the full path /home/… without short cuts such as ~ and must end with / .
 
-6)Enjoy the program grabbing and downloading the .tor files for you
+6) Enjoy the program grabbing and downloading the .tor files for you
 
 <hr>
 </hr>
 <h2>Plans for the future:</h2>
 
-<strike>Explain how to edit the ini files for advance setup (possible)</strike> Added in May 2021
+- <strike>Explain how to edit the ini files for advance setup (possible)</strike> Added in May 2021
 
-<strike>Figure out magnet rss feeds (VERY Low chance due to no idea how to decode these things)</strike> Added in v1.0.8
+- <strike>Figure out magnet rss feeds (VERY Low chance due to no idea how to decode these things)</strike> Added in v1.0.8
 
--Add in private rss feeds (Low chance due to no access to one)
+- Add in private rss feeds (Low chance due to no access to one)
 
 
 <hr>
