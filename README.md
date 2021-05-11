@@ -18,7 +18,7 @@ This program doesnt edit,change, or effect your torrent downloader of choice, su
 
 -Custom words that a standard English keyboard allows.
 
--12 Premade filter rules such as publish date, xxx terms, Chinese characters, and more.
+-12 Premade filter rules such as publish date, xxx terms, Chinese characters, and more detailed in wiki.
 
 -Allows custom download location 
 
@@ -37,8 +37,7 @@ This program doesnt edit,change, or effect your torrent downloader of choice, su
 -Torrents download one after another in order to stay low on memory usage.
 
 <h2>LIMITS:</h2>
-
-----
+-Adding foreign characters to the filter list needed to be added via ini file.
 
 <h2>Known Bugs</h2> (To the best of my knowledge):
 
@@ -64,19 +63,20 @@ This program doesnt edit,change, or effect your torrent downloader of choice, su
 </hr>
 <h2>Plans for the future:</h2>
 
--Explain how to edit the ini files for advance setup (possible)
+<strike>Explain how to edit the ini files for advance setup (possible)</strike> Added in May 2021
+
+<strike>Figure out magnet rss feeds (VERY Low chance due to no idea how to decode these things)</strike> Added in v1.0.8
 
 -Add in private rss feeds (Low chance due to no access to one)
 
--Figure out magnet rss feeds (VERY Low chance due to no idea how to decode these things)
 
 <hr>
 </hr>
 
-<strong>Note:</strong> Dont forget to <strong>fix the permissions</strong> to allow it to be executed.
-<strong>Note 2:</strong> Using VNC and so far only VNC does weird things to keyboard input.
+<strong>Note:</strong> Dont forget to <strong>fix the permissions</strong> to allow it to be executed.<br>
+<strong>Note 2:</strong> Using VNC and so far only VNC does weird things to keyboard input.<br>
 
-Feel free to look at the ini files but I advice against editing anything in them as they keep settings and may not load the setting next time.
+Feel free to look at the ini files but I advice against editing anything in them as they keep settings and may not load the setting next time.<br>
 
 
 
