@@ -33,7 +33,7 @@ if (pop_up_type  !=3)  && (pop_up_type  !=4){
 	draw_rectangle_colour(0,room_height-(room_height/4)-2,22,room_height,c_ltgray,c_ltgray,c_ltgray,c_ltgray,0)
 }
 //ok box
-draw_rectangle_colour(24,room_height-(room_height/8),room_width-(room_width/2)-28,room_height-(room_height/8)+48,c_green,c_green,c_green,c_green,0)
+draw_rectangle_colour(24,room_height-(room_height/8),room_width-(room_width/2)-28,room_height-(room_height/8)+48,c_lime,c_lime,c_lime,c_lime,0)
 draw_rectangle_colour(24,room_height-(room_height/8),room_width-(room_width/2)-28,room_height-(room_height/8)+48,c_black,c_black,c_black,c_black,1)
 draw_set_font(font2);
 draw_set_color(c_black);

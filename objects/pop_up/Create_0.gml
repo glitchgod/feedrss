@@ -17,3 +17,8 @@ if pop_up_type = 0{
 }
 
 alarm[0] = room_speed*.25;
+
+//remove the popup help text object
+if instance_exists(popup_text_box){
+	instance_destroy(popup_text_box)
+}

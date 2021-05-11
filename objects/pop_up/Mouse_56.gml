@@ -1,6 +1,6 @@
 /// @description CLICK AREAs
 
-//type 0 (url list
+//type 0 (url list)
 //ok
 if mouse_x>=24 and mouse_x <= room_width-(room_width/2)-28{
     if (mouse_y >= room_height-(room_height/8)) and (mouse_y <= room_height-(room_height/8)+48) {
@@ -20,7 +20,7 @@ if mouse_x>=24 and mouse_x <= room_width-(room_width/2)-28{
 		}
 	}
 
-//cancel
+//cancel button
 if mouse_x>=room_width-(room_width/2)+28 and mouse_x <= room_width-28{
     if (mouse_y >= room_height-(room_height/8)) and (mouse_y <= room_height-(room_height/8)+48) {
         if pop_up_type =0{//setup active_url_list

@@ -4,7 +4,6 @@ global.url_1_response="";
 raw_1_output="";
 array_of_1[0]="";
 array_of_issues[0]="";
-
 global.download_link="";
 array_of_2[0]="";
 actual_link="";
@@ -56,13 +55,30 @@ no_vids_over_20year=0
 
 //update info
 version_current="";
-version_current="1.0.9"
+version_current="1.1.0"
 version_check="";
 hour_check=0;
 hour_check= current_hour;
 github_grab_id="";
 github_grab="";
 is_update=0;
+
+
+//history data
+history[0,0]="";
+history[0,1]="";
+history[0,2]="";
+history[0,3]="";
+history_at=0;
+//set history start data
+history[0,0]="Fixed Name";
+history[0,1]="Link:";
+history[0,2]="filtered/old,New";
+history[0,3]="Source From:";
+history_at=1;
+history_points_at=1;
+
+
 
 //run update at start with delay
 alarm[1]=room_speed*3;
