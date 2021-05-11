@@ -24,6 +24,7 @@ function file_sorter(argument0, argument1) {
 	        k=to_be_sorted[i,1];
 	        l=to_be_sorted[i,2];
 	        m=to_be_sorted[i,3];
+	        nn=to_be_sorted[i,4];
         
 	        //grab the first letter of the title
 	        //title_first_letter = string_char_at(j, 1);
@@ -39,6 +40,8 @@ function file_sorter(argument0, argument1) {
         
 	        //if the file is not already there
 	        if ini_section_exists(j)=false{
+	            ini_write_string(j,"Source_Website",grabber.url_list[s,0]);
+	            ini_write_string(j,"Original_Name",nn);
 	            ini_write_string(j,"Category",m);
 	            ini_write_string(j,"DatePub",l);
 	            ini_write_string(j,"Link",k);

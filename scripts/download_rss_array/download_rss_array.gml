@@ -30,7 +30,8 @@ function download_rss_array() {
 						var dest=""
 						dest = string(grabber.save_file_location+"files/"+string(array_of_2[z,1])+".torrent");
 					}
-					grabber.last_parse_amount ++
+					grabber.last_parse_amount ++;
+					//grabber.history_points_at ++;
 				}
 	            array_of_2[z] = -1;
 				

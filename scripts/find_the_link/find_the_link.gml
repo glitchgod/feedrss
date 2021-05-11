@@ -6,12 +6,14 @@ function find_the_link(argument0, argument1) {
 	keyword_end=string_insert("/", argument1, 2);
 	//page_length=0;
 	items_found=-1;
+	grabber.history_at=-1
 
 	//foreach section
 	start_copy_at=0;
 	end_copy_at=0;
 	section_found="";
 	titleout="";
+	originaltitleout=""
 	linkout="";
 	pubDateout="";
 	categoryout="";
@@ -61,6 +63,7 @@ function find_the_link(argument0, argument1) {
 	        title_start=string_pos(string("<title>"), section_found)+7; 
 	        title_end=string_pos(string("</title>"), section_found)-title_start;
 	        titleout= string_copy(section_found,title_start,title_end);
+			originaltitleout=titleout;
 	        if string_count( "[", titleout )>0{
 	            titleout= string_replace_all(titleout, "[", " ");
 	            }
@@ -135,6 +138,14 @@ function find_the_link(argument0, argument1) {
 					verify=1;
 				}
 			}
+			//remove random things from the category
+			if string_count( "<![CDATA", categoryout )>0{
+				categoryout=string_replace(categoryout,"<![CDATA","");
+			}
+			if string_count( "]]>", categoryout )>0{
+				categoryout=string_replace(categoryout,"]]>","]");
+			}
+			
 	    }
 //no date category
 	    if string_count( "<category>", section_found )<=0{
@@ -176,14 +187,11 @@ function find_the_link(argument0, argument1) {
 				linkout= string("Misformed magnet link ");
 			}
 	    }
-		/*
-	start_enclosure_url=""
-	end_enclosure_url=""*/
+		
 		//Filter out embeded links
 		if string_count( "<enclosure url=", section_found )>0 && verify = 0{
 	        start_enclosure_url=string_pos(string("<enclosure url="), section_found)+16; 
 	        end_enclosure_url=string_pos(string(".torrent"), section_found)-start_enclosure_url+8;
-	        //end_enclosure_url=string_pos(string(".torrent"), section_found)-link_start+8;
 	        linkout= string_copy(section_found,start_enclosure_url,end_enclosure_url);
 			}
 		
@@ -205,10 +213,10 @@ function find_the_link(argument0, argument1) {
 	         pubDate_start=string_pos(string("<pubDate>"), section_found)+9; 
 	         pubDate_end=string_pos(string("</pubDate>"), section_found)-pubDate_start;
 	         pubDateout= string_copy(section_found,pubDate_start,pubDate_end);
-	        if string_count( "[", titleout )>0{
+	        if string_count( "[", pubDateout )>0{
 	            pubDateout= string_replace_all(pubDateout, "[", "(");
 	            }
-	        if string_count( "]", titleout )>0{
+	        if string_count( "]", pubDateout )>0{
 	            pubDateout= string_replace_all(pubDateout, "]", ")");
 	            }
 	    }
@@ -223,6 +231,7 @@ function find_the_link(argument0, argument1) {
 	    
 	    /*if verify = 0*/{
 	        items_found++;
+			grabber.history_at++;
 	        }
     
 	    //array to add to
@@ -230,6 +239,18 @@ function find_the_link(argument0, argument1) {
 	    scanned_items[items_found,1]=linkout;
 	    scanned_items[items_found,2]=pubDateout;
 	    scanned_items[items_found,3]=categoryout;
+	    scanned_items[items_found,4]=originaltitleout;
+		
+		//history to add to
+		grabber.history[grabber.history_at,0]=titleout;
+		
+		//max length is 75in character limits so post process is needed
+		if string_length(linkout)>55{
+			linkout=string_insert("#",linkout,55)
+		}
+		grabber.history[grabber.history_at,1]=linkout;
+		grabber.history[grabber.history_at,2]="filtered/old,New";
+		grabber.history[grabber.history_at,3]=grabber.url_list[s,0];
     current_count++;
 	}until ((string_pos(string(keyword), current_link)==0) or (current_count>max_count))
 	return scanned_items;
