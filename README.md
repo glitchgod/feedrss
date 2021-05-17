@@ -4,7 +4,7 @@ I made this program as I keep having issues with torrent engines updating and br
 I would call this something like flexget but very easy plug and play.
 <hr>
 </hr>
-Current Version = 1.1.0 <br>
+Current Version = 1.1.1 <br>
 Built ready to go linux packages listed in release section.
 <h2><strong>What it does different from torrent engines :</strong></h2>
 This program doesnt edit, change, or effect your torrent downloader of choice, such as qbittorrent. What this program does is be an alternative to the torrent engines built in rss feed downloader. This is a seperat program and thus no manipulation to torrent engines is needed beyond setting the torrent downloader of choice to load .torrent files from a folder.
