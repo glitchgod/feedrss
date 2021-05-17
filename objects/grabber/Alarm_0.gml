@@ -15,6 +15,13 @@ if china_on=1{
         g++
         }
     }
+if japan_on=1{
+    h = array_length_1d(Japan_letters);
+    for (i=0;i<h;i++){
+        full_ignore_list[g]=Japan_letters[i]
+        g++
+        }
+    }
 if countries_on=1{
     h = array_length_1d(countries_term);
     for (i=0;i<h;i++){
@@ -66,21 +73,21 @@ if not_480p=1{
     g++
     }
     
-if no_vids_over_1year=1 and no_vids_over_5year= 0 and no_vids_over_20year = 0{
+if no_vids_over_1year=1{
     h = current_year;
     for (i=1900;i<h-1;i++){
         full_ignore_list[g]=i
         g++
         }
     }    
-if no_vids_over_5year=1 and no_vids_over_1year= 0 and no_vids_over_20year = 0{
+if no_vids_over_5year=1{
     h = current_year;
     for (i=1900;i<h-6;i++){
         full_ignore_list[g]=i
         g++
         }
     }    
-if no_vids_over_20year=1 and no_vids_over_5year= 0 and no_vids_over_1year = 0{
+if no_vids_over_20year=1{
     h = current_year;
     for (i=1900;i<h-21;i++){
         full_ignore_list[g]=i
@@ -114,7 +121,7 @@ last_updated=string_delete(last_updated,28,string_length(last_updated)-26);
 
 //update file stats
 if file_exists(string(working_directory)+"tool_stats.ini"){
-    tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
+    var tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
     ini_write_string("stats","last_update_time",last_updated);
     ini_close(); 
 

@@ -5,7 +5,6 @@ if timer_minutes>0{
 if timer_minutes<=0{
     alarm[0]=timer_minutes_constant*1;
     }
-
 ///russian letters
 //russian_on=0;
 
@@ -57,7 +56,42 @@ russian_letters[40]="й";
 //china_on=0;
 
 china_letters[0]="";
+if file_exists("common_chinese_characters.txt") =true {
+	chinese_file = file_text_open_read("common_chinese_characters.txt");
+	var chinese_whole = file_text_read_string(chinese_file);
+	for (cc = 0;cc<string_length(chinese_whole);cc++){
+		china_letters[cc]= string_char_at(chinese_whole,cc+1)
+	}
+	file_text_close(chinese_file)
+	
+}
+///Japan letters
+//Japan_on=0;
 
+Japan_letters[0]="";
+Japan_letters_on=0
+if file_exists("common_Hiragana_characters.txt") =true {
+	Hiragana_file = file_text_open_read("common_Hiragana_characters.txt");
+	var Hiragana_whole = file_text_read_string(Hiragana_file);
+	for (dd = 0;dd<string_length(Hiragana_whole);dd++){
+		Japan_letters[dd]= string_char_at(Hiragana_whole,dd+1)
+		Japan_letters_on=dd;
+	}
+	file_text_close(Hiragana_file)
+}
+	
+	
+if file_exists("common_Kanji_characters.txt") =true {
+	Kanji_file = file_text_open_read("common_Hiragana_characters.txt");
+	var Kanji_whole = file_text_read_string(Kanji_file);
+	for (ee = Japan_letters_on;ee<string_length(Kanji_whole);ee++){
+		Japan_letters[ee]= string_char_at(Kanji_whole,ee+1)
+	}
+	file_text_close(Kanji_file)
+	
+	
+}
+/*
 china_letters[0]="的"; 
 china_letters[1]="是";
 china_letters[2]="不"; 
@@ -162,6 +196,7 @@ china_letters[97]="п";
 china_letters[98]="Ф"; 
 china_letters[99]="ф";
 china_letters[100]="З";
+*/
 
 ///common countries
 //countries_on=0;

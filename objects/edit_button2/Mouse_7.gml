@@ -7,7 +7,7 @@ if __b__
 //Popup that edits the list
 pop_up_string ="";
 for (d=0;d<array_length_1d(grabber.ignore_list); d++){
- pop_up_string= pop_up_string+ "["+string(d+13)+"]"+string(grabber.ignore_list[d])+"#";
+ pop_up_string= pop_up_string+ "["+string(d+14)+"]"+string(grabber.ignore_list[d])+"#";
  }
 
 //russain text setup 
@@ -28,22 +28,32 @@ if grabber.china_on=1{
     china_text = "[2] (ENABLED) Filter out Chinese Characters # ";
 }  
  
+ 
+//Japan text setup 
+var japan_text=""
+if grabber.japan_on=0{
+    japan_text = "[3] (DISABLED) Filter out Japanese (Hirigana and Kanji) Characters # ";
+}
+if grabber.japan_on=1{
+    japan_text = "[3] (ENABLED) Filter out Japanese (Hirigana and Kanji) Characters # ";
+}  
+ 
 //common location text setup 
 var countries_text=""
 if grabber.countries_on=0{
-    countries_text = "[3] (DISABLED) Filter out words like.  Hindi, Spanish, Italian, korean, chinese, German # ";
+    countries_text = "[4] (DISABLED) Filter out words like.  Hindi, Spanish, Italian, korean, chinese, German # ";
 }
 if grabber.countries_on=1{
-    countries_text = "[3] (ENABLED) Filter out words like.  Hindi, Spanish, Italian, korean, chinese, German # ";
+    countries_text = "[4] (ENABLED) Filter out words like.  Hindi, Spanish, Italian, korean, chinese, German # ";
 } 
  
 //common porn text setup 
 var porn_text=""
 if grabber.porn_on=0{
-    porn_text = "[4] (DISABLED) Filter out common porn words  # ";
+    porn_text = "[5] (DISABLED) Filter out common porn words  # ";
 }
 if grabber.porn_on=1{
-    porn_text = "[4] (ENABLED) Filter out common porn words  # ";
+    porn_text = "[5] (ENABLED) Filter out common porn words  # ";
 } 
  
 //resolution filters 
@@ -51,34 +61,34 @@ if grabber.porn_on=1{
 //1080p text setup 
 var text_1080p=""
 if grabber.not_1080p=0{
-    text_1080p = "[5] (DISABLED) Filter out videos with 1080p in title # ";
+    text_1080p = "[6] (DISABLED) Filter out videos with 1080p in title # ";
 }
 if grabber.not_1080p=1{
-    text_1080p = "[5] (ENABLED) Filter out videos with 1080p in title # ";
+    text_1080p = "[6] (ENABLED) Filter out videos with 1080p in title # ";
 }  
 //webrip text setup 
 var webrip_text=""
 if grabber.not_webrip=0{
-    webrip_text = "[6] (DISABLED) Filter out videos with webrip in title # ";
+    webrip_text = "[7] (DISABLED) Filter out videos with webrip in title # ";
 }
 if grabber.not_webrip=1{
-    webrip_text = "[6] (ENABLED) Filter out videos with webrip in title # ";
+    webrip_text = "[7] (ENABLED) Filter out videos with webrip in title # ";
 }  
 //720p text setup 
 var text_720p=""
 if grabber.not_720p=0{
-    text_720p = "[7] (DISABLED) Filter out videos with 720p in title # ";
+    text_720p = "[8] (DISABLED) Filter out videos with 720p in title # ";
 }
 if grabber.not_720p=1{
-    text_720p = "[7] (ENABLED) Filter out videos with 720p in title # ";
+    text_720p = "[8] (ENABLED) Filter out videos with 720p in title # ";
 }  
 //480p text setup 
 var text_480p=""
 if grabber.not_480p=0{
-    text_480p = "[8] (DISABLED) Filter out videos with 480p in title # ";
+    text_480p = "[9] (DISABLED) Filter out videos with 480p in title # ";
 }
 if grabber.not_480p=1{
-    text_480p = "[8] (ENABLED) Filter out videos with 480p in title # ";
+    text_480p = "[9] (ENABLED) Filter out videos with 480p in title # ";
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------
@@ -89,46 +99,46 @@ if grabber.not_480p=1{
 //1 year text setup 
 var text_1year=""
 if grabber.no_vids_over_1year=0 and grabber.no_vids_over_5year!=1 and grabber.no_vids_over_20year != 1 {
-    text_1year = "[9] (DISABLED) Filter out videos with 1 year older then the current in title. #";
+    text_1year = "[10] (DISABLED) Filter out videos with 1 year older then the current in title. #";
 }
 if grabber.no_vids_over_1year=1 and grabber.no_vids_over_5year!=1 and grabber.no_vids_over_20year != 1 {
-    text_1year = "[9] (ENABLED) Filter out videos with 1 year older then the current in title. #";
+    text_1year = "[10] (ENABLED) Filter out videos with 1 year older then the current in title. #";
 } 
 if grabber.no_vids_over_5year=1 or grabber.no_vids_over_20year = 1 {
-    text_1year = "[9] (Not Allowed) Option [10] or Option [11] are enabled and would only duplicate filter years # ";
+    text_1year = "[10] (Not Allowed) Option [11] or Option [12] are enabled and would only duplicate filter years # ";
 } 
 
 //5 year text setup 
 var text_5year=""
 if grabber.no_vids_over_5year=0 and grabber.no_vids_over_20year!=1 and grabber.no_vids_over_1year != 1{
-    text_5year = "[10] (DISABLED) Filter out videos that are 5 years older then the current in title. # ";
+    text_5year = "[11] (DISABLED) Filter out videos that are 5 years older then the current in title. # ";
 }
 if grabber.no_vids_over_5year=1 and grabber.no_vids_over_20year!=1 and grabber.no_vids_over_1year != 1 {
-    text_5year = "[10] (ENABLED) Filter out videos that are 5 years older then the current in title. # ";
+    text_5year = "[11] (ENABLED) Filter out videos that are 5 years older then the current in title. # ";
 }
 if grabber.no_vids_over_20year=1 or grabber.no_vids_over_1year = 1 {
-    text_5year = "[10] (Not Allowed) Option [9] or Option [11] are enabled and would only duplicate filter years # ";
+    text_5year = "[11] (Not Allowed) Option [10] or Option [12] are enabled and would only duplicate filter years # ";
 }
 
 //20 year text setup 
 var text_20year=""
 if grabber.no_vids_over_20year=0 and grabber.no_vids_over_5year!=1 and grabber.no_vids_over_1year != 1 {
-    text_20year = "[11] (DISABLED) Filter out videos that are 20 years older then the current in title. # ";
+    text_20year = "[12] (DISABLED) Filter out videos that are 20 years older then the current in title. # ";
 }
 if grabber.no_vids_over_20year=1 and grabber.no_vids_over_5year!=1 and grabber.no_vids_over_1year != 1 {
-    text_20year = "[11] (ENABLED) Filter out videos that are 20 years older then the current in title. # ";
+    text_20year = "[12] (ENABLED) Filter out videos that are 20 years older then the current in title. # ";
 } 
 if grabber.no_vids_over_5year=1 or grabber.no_vids_over_1year = 1 {
-    text_20year = "[11] (Not Allowed) Option [9] or Option [10] are enabled and would only duplicate filter years # ";
+    text_20year = "[12] (Not Allowed) Option [10] or Option [11] are enabled and would only duplicate filter years # ";
 } 
 
 //Filter only movies 
 var only_movies=""
 if grabber.only_movies = 0{
-    only_movies = "[12] (DISABLED) Filter out videos WITHOUT the category movie (cant work without a category in feed). # ";
+    only_movies = "[13] (DISABLED) Filter out videos WITHOUT the category movie (cant work without a category in feed). # ";
 }
 if grabber.only_movies = 1{
-    only_movies = "[12] (ENABLED) Filter out videos WITHOUT the category movie (cant work without a category in feed). # ";
+    only_movies = "[13] (ENABLED) Filter out videos WITHOUT the category movie (cant work without a category in feed). # ";
 }
 //----------------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------------
@@ -139,7 +149,7 @@ var spacer = "#-----------------------------------------------------------------
 var spacer2 = "------------------------- Custom added Words ------------------------------#"; 
  
 var text_to_show_info = "----------------------"+" WORD FILTER OPTIONS"+"-----------------------------#"+" To enable an option type in the number infront of the Word then hit ok"+ "#To add a custom word, type in A SINGLE WORD and click ok "+"#"+"DONT' ADD BLANK AREAS TO THE FILTER SYSTEM. IT WILL DENY ANYTHING WITH A SPACE IN THE TITLE"+ string(spacer);
-var text_to_show_options = string(russian_text)+string(china_text)+string(countries_text)+string(porn_text)+string(text_1080p)+string(webrip_text)+string(text_720p)+string(text_480p)+string(text_1year)+string(text_5year)+string(text_20year)+string(only_movies)+string(spacer2);
+var text_to_show_options = string(russian_text)+string(china_text)+string(japan_text)+string(countries_text)+string(porn_text)+string(text_1080p)+string(webrip_text)+string(text_720p)+string(text_480p)+string(text_1year)+string(text_5year)+string(text_20year)+string(only_movies)+string(spacer2);
 var text_to_show_custom_list = string(pop_up_string);
 
 //create popup

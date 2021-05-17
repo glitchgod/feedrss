@@ -41,6 +41,7 @@ full_ignore_list[0]="";
 //loading filter variables
 russian_on=0
 china_on=0
+japan_on=0
 countries_on=0
 porn_on=0
 not_1080p=0
@@ -55,7 +56,7 @@ no_vids_over_20year=0
 
 //update info
 version_current="";
-version_current="1.1.0"
+version_current="1.1.1"
 version_check="";
 hour_check=0;
 hour_check= current_hour;
@@ -120,6 +121,7 @@ if file_exists(string(working_directory)+"ignore_list.ini")=true{
     
     grabber.russian_on = ini_read_real("russian_on","russian_on",0);
     grabber.china_on = ini_read_real("china_text","china_on",0);
+    grabber.japan_on = ini_read_real("japan_text","japan_on",0);
     grabber.countries_on = ini_read_real("countries_on","countries_on",0);
     grabber.porn_on = ini_read_real("porn_on","porn_on",0);
     grabber.not_1080p = ini_read_real("not_1080p","not_1080p",0);
