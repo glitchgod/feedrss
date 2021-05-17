@@ -18,7 +18,7 @@ This program doesnt edit, change, or effect your torrent downloader of choice, s
 
 - Custom words that a standard English keyboard allows.
 
-- 12 Premade filter rules such as publish date, xxx terms, Chinese characters, and more detailed in wiki.
+- 13 Premade filter rules such as publish date, xxx terms, Chinese characters, Japanese characters, and more detailed in wiki.
 
 - Allows custom download location 
 
