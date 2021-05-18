@@ -1,4 +1,4 @@
-<h1>feedrss : A simple to rss feed manager for .tor files</h1>
+<h1>feedrss : A simple to use rss feed manager for .tor files</h1>
 <h3>Story behind why I made this:</h3>
 I made this program as I keep having issues with torrent engines updating and breaking their builtin rss feed downloader or the rss feed downloader being spotty on what it grabs. Being fed up with this I made a program in GML (Game Maker Language) that I feel is easy to use and easy to understand.<br>
 I would call this something like flexget but very easy plug and play.
