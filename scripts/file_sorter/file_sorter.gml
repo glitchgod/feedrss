@@ -37,7 +37,7 @@ function file_sorter(argument0, argument1) {
 	        //in theory this would load the section 
 	        //then see if the values of k and l are better
 	        }
-        
+			
 	        //if the file is not already there
 	        if ini_section_exists(j)=false{
 	            ini_write_string(j,"Source_Website",grabber.url_list[s,0]);
@@ -50,39 +50,9 @@ function file_sorter(argument0, argument1) {
 	            send_back_link[i,1]=j;
 	            grabber.last_found_amount++;
 	        }
-        
 	        //close the file
 	        ini_close(); 
-        
 	        }
 	    }
-
 	return send_back_link;
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
-
 }

@@ -7,6 +7,7 @@ function save_ignore_list() {
 
 	    ini_write_real("russian_on","russian_on",grabber.russian_on);
 	    ini_write_real("china_text","china_on",grabber.china_on);
+	    ini_write_real("japan_text","japan_on",grabber.japan_on);
 	    ini_write_real("countries_on","countries_on",grabber.countries_on);
 	    ini_write_real("porn_on","porn_on",grabber.porn_on);
 	    ini_write_real("not_1080p","not_1080p",grabber.not_1080p);
@@ -17,6 +18,7 @@ function save_ignore_list() {
 	    ini_write_real("no_vids_over_5year","no_vids_over_5year",grabber.no_vids_over_5year);
 	    ini_write_real("no_vids_over_20year","no_vids_over_20year",grabber.no_vids_over_20year);
 	    ini_write_real("only_movies","only_movies",grabber.only_movies);
+		ini_write_real("episodes_on","episodes_on",grabber.episodes_on);
 		
 	if total_ignore_list>0 {    
 	    for (c=0; c<real(total_ignore_list);c++) {

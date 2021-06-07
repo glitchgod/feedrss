@@ -26,7 +26,7 @@ function edit_word_filter_list(argument0) {
    
 	   if number_from_result>0{
 	     //check if the number is less than 12
-	     if number_from_result<13{
+	     if number_from_result<15{
 	         switch (number_from_result){
 	         case 1:
 	             if (grabber.russian_on=0){
@@ -49,6 +49,16 @@ function edit_word_filter_list(argument0) {
 	                 }
 	             break;
 	         case 3:
+	             if (grabber.japan_on=0){
+	                 grabber.japan_on=1
+	                 save_ignore_list();
+	                 }
+	             else{
+	                 grabber.japan_on=0
+	                 save_ignore_list();
+	                 }
+	             break;
+	         case 4:
 	             if (grabber.countries_on=0){
 	                 grabber.countries_on=1
 	                 save_ignore_list();
@@ -58,7 +68,7 @@ function edit_word_filter_list(argument0) {
 	                 save_ignore_list();
 	                 }
 	             break;
-	         case 4:
+	         case 5:
 	             if (grabber.porn_on=0){
 	                 grabber.porn_on=1
 	                 save_ignore_list();
@@ -68,7 +78,7 @@ function edit_word_filter_list(argument0) {
 	                 save_ignore_list();
 	                 }
 	             break;
-	         case 5:
+	         case 6:
 	             if (grabber.not_1080p=0){
 	                 grabber.not_1080p=1
 	                 save_ignore_list();
@@ -78,7 +88,7 @@ function edit_word_filter_list(argument0) {
 	                 save_ignore_list();
 	                 }
 	             break;
-	         case 6:
+	         case 7:
 	             if (grabber.not_webrip=0){
 	                 grabber.not_webrip=1
 	                 save_ignore_list();
@@ -88,7 +98,7 @@ function edit_word_filter_list(argument0) {
 	                 save_ignore_list();
 	                 }
 	             break;
-	         case 7:
+	         case 8:
 	             if (grabber.not_720p=0){
 	                 grabber.not_720p=1
 	                 save_ignore_list();
@@ -98,7 +108,7 @@ function edit_word_filter_list(argument0) {
 	                 save_ignore_list();
 	                 }
 	             break;
-	         case 8:
+	         case 9:
 	             if (grabber.not_480p=0){
 	                 grabber.not_480p=1
 	                 save_ignore_list();
@@ -108,7 +118,7 @@ function edit_word_filter_list(argument0) {
 	                 save_ignore_list();
 	                 }
 	             break;
-	         case 9:
+	         case 10:
 	             if (grabber.no_vids_over_1year=0){
 	                 grabber.no_vids_over_1year=1
 	                 save_ignore_list();
@@ -118,7 +128,7 @@ function edit_word_filter_list(argument0) {
 	                 save_ignore_list();
 	                 }
 	             break;
-	         case 10:
+	         case 11:
 	             if (grabber.no_vids_over_5year=0){
 	                 grabber.no_vids_over_5year=1
 	                 save_ignore_list();
@@ -128,7 +138,7 @@ function edit_word_filter_list(argument0) {
 	                 save_ignore_list();
 	                 }
 	             break;
-	         case 11:
+	         case 12:
 	             if (grabber.no_vids_over_20year=0){
 	                 grabber.no_vids_over_20year=1
 	                 save_ignore_list();
@@ -138,13 +148,23 @@ function edit_word_filter_list(argument0) {
 	                 save_ignore_list();
 	                 }
 	             break;
-	         case 12:
+	         case 13:
 	             if (grabber.only_movies = 0){
 	                 grabber.only_movies=1
 	                 save_ignore_list();
 	                 }
 	             else{
 	                 grabber.only_movies=0
+	                 save_ignore_list();
+	                 }
+	             break;
+	         case 14:
+	             if (grabber.episodes_on = 0){
+	                 grabber.episodes_on=1
+	                 save_ignore_list();
+	                 }
+	             else{
+	                 grabber.episodes_on=0
 	                 save_ignore_list();
 	                 }
 	             break;
@@ -155,10 +175,10 @@ function edit_word_filter_list(argument0) {
 	         save_ignore_list();
 	         exit;
 	     }
-	     if number_from_result >= 13{
+	     if number_from_result >= 15{
 	         //delete the list of custom
-	         if real(array_length_1d(grabber.ignore_list)+13) >= number_from_result{
-	             grabber.ignore_list[number_from_result-13] = "";
+	         if real(array_length_1d(grabber.ignore_list)+15) >= number_from_result{
+	             grabber.ignore_list[number_from_result-15] = "";
 	             save_ignore_list();
 	             exit;
 	         }

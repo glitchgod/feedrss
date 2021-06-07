@@ -84,7 +84,7 @@ function find_the_link(argument0, argument1) {
 	            if verify !=0{
 	                continue;
 	                }
-	            verify = string_pos(string(global.inside), string(string_lower(global.test_title)));
+	            verify = string_pos(string(string_lower(global.inside)), string(string_lower(global.test_title)));
 	            }
 			//loop to find the year start then cut off the rest
 			for (m=1900;m<current_year+1;m++){
