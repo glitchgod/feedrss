@@ -51,6 +51,11 @@ if not_webrip=1{
     g++
     full_ignore_list[g]="(webrip)";
     g++
+    full_ignore_list[g]="(HDCAM)";
+    g++
+    full_ignore_list[g]="HDCAM";
+    g++
+	
     }
 if not_720p=1{
     full_ignore_list[g]="720";
@@ -92,6 +97,24 @@ if no_vids_over_20year=1{
     for (i=1900;i<h-21;i++){
         full_ignore_list[g]=i
         g++
+        }
+    }    
+if episodes_on=1{
+	var num_being_added="";
+    for (i=1;i<100;i++){
+		if i<10{
+			num_being_added="EP0"+string(i)
+			num_being_added="ep0"+string(i)
+			num_being_added="E0"+string(i)
+			num_being_added="e0"+string(i)
+		}
+		else{
+			full_ignore_list[g]=string("EP"+string(i));
+			full_ignore_list[g]=string("ep"+string(i));
+			full_ignore_list[g]=string("E"+string(i));
+			full_ignore_list[g]=string("e"+string(i));
+		}
+        g=g+4
         }
     }    
     

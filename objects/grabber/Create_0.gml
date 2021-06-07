@@ -52,11 +52,12 @@ only_movies=0
 no_vids_over_1year=0
 no_vids_over_5year=0
 no_vids_over_20year=0
+episodes_on=0
 
 
 //update info
 version_current="";
-version_current="1.1.1"
+version_current="1.1.2"
 version_check="";
 hour_check=0;
 hour_check= current_hour;
@@ -133,6 +134,7 @@ if file_exists(string(working_directory)+"ignore_list.ini")=true{
     grabber.no_vids_over_5year = ini_read_real("no_vids_over_5year","no_vids_over_5year",0);
     grabber.no_vids_over_20year = ini_read_real("no_vids_over_20year","no_vids_over_20year",0);
     grabber.only_movies = ini_read_real("only_movies","only_movies",0);
+	grabber.episodes_on = ini_read_real("episodes_on","episodes_on",0);
     
     if total_ignore>0 {
     for (c=0; c<total_ignore;c++) {

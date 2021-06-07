@@ -1,6 +1,4 @@
-var __b__;
-__b__ = action_if_number(pop_up, 0, 0);
-if __b__
+if instance_exists(pop_up)=false
 {
 //Popup that edits the list
 pop_up_string ="";

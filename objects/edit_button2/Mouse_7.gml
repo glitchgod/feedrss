@@ -1,13 +1,11 @@
-var __b__;
-__b__ = action_if_number(pop_up, 0, 0);
-if __b__
+if instance_exists(pop_up)=false
 {
 ///edit the list
 
 //Popup that edits the list
 pop_up_string ="";
 for (d=0;d<array_length_1d(grabber.ignore_list); d++){
- pop_up_string= pop_up_string+ "["+string(d+14)+"]"+string(grabber.ignore_list[d])+"#";
+ pop_up_string= pop_up_string+ "["+string(d+15)+"]"+string(grabber.ignore_list[d])+"#";
  }
 
 //russain text setup 
@@ -69,10 +67,10 @@ if grabber.not_1080p=1{
 //webrip text setup 
 var webrip_text=""
 if grabber.not_webrip=0{
-    webrip_text = "[7] (DISABLED) Filter out videos with webrip in title # ";
+    webrip_text = "[7] (DISABLED) Filter out videos with webrip and HDCAM in title # ";
 }
 if grabber.not_webrip=1{
-    webrip_text = "[7] (ENABLED) Filter out videos with webrip in title # ";
+    webrip_text = "[7] (ENABLED) Filter out videos with webrip and HDCAM in title # ";
 }  
 //720p text setup 
 var text_720p=""
@@ -140,6 +138,15 @@ if grabber.only_movies = 0{
 if grabber.only_movies = 1{
     only_movies = "[13] (ENABLED) Filter out videos WITHOUT the category movie (cant work without a category in feed). # ";
 }
+
+//Filter out episodes
+var only_movies=""
+if grabber.episodes_on = 0{
+    only_movies = "[14] (DISABLED) Filter out videos WITH 'Ep01' - 'Ep100' in the title. # ";
+}
+if grabber.episodes_on = 1{
+    only_movies = "[14] (ENABLED) Filter out videos WITH 'Ep01' - 'Ep100' in the title. # ";
+}
 //----------------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------------
@@ -156,5 +163,7 @@ var text_to_show_custom_list = string(pop_up_string);
 var pop = instance_create(x,y,pop_up);
 pop.pop_up_type =1
 pop.pop_up_text=string(text_to_show_info)+string(text_to_show_options)+string(text_to_show_custom_list)+string(spacer);
+pop_up.pop_up_text_lines += string_count("#",text_to_show_info) +  string_count("#",text_to_show_options);
+pop_up.pop_up_text_lines += array_length_1d(grabber.ignore_list);
 
 }
