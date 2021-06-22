@@ -57,7 +57,7 @@ episodes_on=0
 
 //update info
 version_current="";
-version_current="1.1.2"
+version_current="1.1.3"
 version_check="";
 hour_check=0;
 hour_check= current_hour;

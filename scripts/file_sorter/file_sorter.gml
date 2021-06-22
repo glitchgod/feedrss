@@ -34,16 +34,15 @@ function file_sorter(argument0, argument1) {
         
 	        //see if it already there
 	        if ini_section_exists(j){
-	        //in theory this would load the section 
-	        //then see if the values of k and l are better
+	        //This means that section is a duplicate so no need to add it
 	        }
 			
 	        //if the file is not already there
 	        if ini_section_exists(j)=false{
-	            ini_write_string(j,"Source_Website",grabber.url_list[s,0]);
+	            ini_write_string(j,"RSS_Feed_Source",grabber.url_list[s,0]);
 	            ini_write_string(j,"Original_Name",nn);
 	            ini_write_string(j,"Category",m);
-	            ini_write_string(j,"DatePub",l);
+	            ini_write_string(j,"Date_Pulled",l);
 	            ini_write_string(j,"Link",k);
             
 	            send_back_link[i,0]=k;

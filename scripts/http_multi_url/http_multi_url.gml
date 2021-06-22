@@ -24,12 +24,12 @@ function http_multi_url(){
 				
 				        //update file stats
 				        if file_exists(string(working_directory)+"tool_stats.ini")= false{
-				            tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
+				            var tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
 				            ini_write_real("stats","last_download_total",grabber.last_found_amount);
 				            ini_close(); 
 				            }
 				        if file_exists(string(working_directory)+"tool_stats.ini")= true{
-				            tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
+				            var tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
 				            ini_write_real("stats","last_download_total",grabber.last_found_amount);
 				            ini_close(); 
 				            }
@@ -99,12 +99,12 @@ function http_multi_url(){
 				
 				        //update file stats
 				        if file_exists(string(working_directory)+"tool_stats.ini")= false{
-				            tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
+				            var tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
 				            ini_write_real("stats","last_download_total",grabber.last_found_amount);
 				            ini_close(); 
 				            }
 				        if file_exists(string(working_directory)+"tool_stats.ini")= true{
-				            tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
+				            var tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
 				            ini_write_real("stats","last_download_total",grabber.last_found_amount);
 				            ini_close(); 
 				            }
@@ -154,13 +154,14 @@ function http_multi_url(){
 		}
 	}
 	if file_exists(string(working_directory)+"tool_stats.ini")= false{
-		tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
+		var tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
 		ini_write_real("stats","last_parse_amount",grabber.last_parse_amount);
 		ini_close(); 
 		}
 	if file_exists(string(working_directory)+"tool_stats.ini")= true{
-		tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
+		var tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
 		ini_write_real("stats","last_parse_amount",grabber.last_parse_amount);
 		ini_close(); 
 		}
+grabber.currently_downloading=0
 }
