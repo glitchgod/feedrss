@@ -25,6 +25,7 @@ function file_sorter(argument0, argument1) {
 	        l=to_be_sorted[i,2];
 	        m=to_be_sorted[i,3];
 	        nn=to_be_sorted[i,4];
+	        oo=to_be_sorted[i,5];
         
 	        //grab the first letter of the title
 	        //title_first_letter = string_char_at(j, 1);
@@ -37,9 +38,16 @@ function file_sorter(argument0, argument1) {
 	        //This means that section is a duplicate so no need to add it
 	        }
 			
+			//process the oo so that it says download if empty
+			if string_length(oo)<2{
+				oo="Downloaded"
+			}
+			
+			
 	        //if the file is not already there
 	        if ini_section_exists(j)=false{
 	            ini_write_string(j,"RSS_Feed_Source",grabber.url_list[s,0]);
+	            ini_write_string(j,"Download_Status",oo);
 	            ini_write_string(j,"Original_Name",nn);
 	            ini_write_string(j,"Category",m);
 	            ini_write_string(j,"Date_Pulled",l);

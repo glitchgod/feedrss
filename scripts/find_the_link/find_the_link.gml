@@ -23,6 +23,7 @@ function find_the_link(argument0, argument1) {
 	linkout="";
 	grabDateout="";
 	categoryout="";
+	categoryissue="";
 	scanned_items[0]="";
 	current_count=0;
 	max_count=125; //the amount of urls allowed to be processed at a time.... maybe allow customization in future.
@@ -35,7 +36,7 @@ function find_the_link(argument0, argument1) {
 	start_enclosure_url=""
 	end_enclosure_url=""
 	denied_reason=""
-	downed="" //say if their is an error or nothing, if nothing then it downloads
+	downedout="" //say if their is an error or nothing, if nothing then it downloads
 
 	//check off to continue
 	verify=0;
@@ -54,6 +55,8 @@ function find_the_link(argument0, argument1) {
 	    grabDateout="";
 	    categoryout="";
 		denied_reason="";
+		downedout="";
+		categoryissue="";
     
 	    start_copy_at=string_pos(string(keyword), current_link) ;
 	    end_copy_at=string_pos(string(keyword_end), current_link)-start_copy_at ;
@@ -198,7 +201,8 @@ function find_the_link(argument0, argument1) {
 				
 				if temp_see=0 {
 					verify=1;
-					categoryout=string(categoryout)+string(" | ")+string("Only Movies Nothing Else")				
+					categoryout=string(categoryout)+string(" | ")+string("Only Movies Nothing Else")	
+					categoryissue=string("Only Movies Nothing Else");
 				}
 			}
 	    }
@@ -254,7 +258,7 @@ function find_the_link(argument0, argument1) {
 	    }
 	    //yes linkout filter says dont add
 	    if string_count( "<link>", section_found )>0 && verify != 0{
-	        linkout= linkout + string(" NOT DOWNLOADED DUE TO FILTER SETTINGS")+ string(" : ")+string(denied_reason);
+	        linkout= linkout + string(" : NOT DOWNLOADED DUE TO FILTER SETTINGS")//+ string(" : ")+string(denied_reason);
 	    }
 //---------------------------------------------------------------------------------    
 //Process the grabDate
@@ -268,10 +272,14 @@ function find_the_link(argument0, argument1) {
 //---------------------------------------------------------------------------------    
     
 	    
-	    /*if verify = 0*/{
-	        items_found++;
-			grabber.history_at++;
-	        }
+		items_found++;
+		grabber.history_at++;
+		
+		
+		if verify!=0{
+			downedout= string("NOT DOWNLOADED DUE TO FILTER SETTINGS :")+string(categoryissue)+string(" : ")+string(denied_reason);
+		}
+	    
     
 	    //array to add to
 	    scanned_items[items_found,0]=titleout;
@@ -279,6 +287,7 @@ function find_the_link(argument0, argument1) {
 	    scanned_items[items_found,2]=grabDateout;
 	    scanned_items[items_found,3]=categoryout;
 	    scanned_items[items_found,4]=originaltitleout;
+	    scanned_items[items_found,5]=downedout;
 		
 		//history to add to
 		grabber.history[grabber.history_at,0]=titleout;

@@ -23,6 +23,7 @@
     {"id":{"name":"action_set_relative","path":"scripts/action_set_relative/action_set_relative.yy",},"order":5,},
     {"id":{"name":"Note1","path":"notes/Note1/Note1.yy",},"order":0,},
     {"id":{"name":"question_mark","path":"sprites/question_mark/question_mark.yy",},"order":8,},
+    {"id":{"name":"download_button_dark","path":"sprites/download_button_dark/download_button_dark.yy",},"order":14,},
     {"id":{"name":"__init_action","path":"scripts/__init_action/__init_action.yy",},"order":7,},
     {"id":{"name":"instance_create","path":"scripts/instance_create/instance_create.yy",},"order":1,},
     {"id":{"name":"object_get_depth","path":"scripts/object_get_depth/object_get_depth.yy",},"order":1,},
