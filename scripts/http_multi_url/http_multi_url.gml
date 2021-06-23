@@ -1,7 +1,6 @@
 function http_multi_url(){
 	
 	if is_array(global.url_1_response)=true{
-		
 //if their is more then website	
 		if (array_length_1d(global.url_1_response)>1){
 		for (s=0; s<(array_length_1d(global.url_1_response)-1) ;s++){
@@ -78,10 +77,14 @@ function http_multi_url(){
 		current_link=-1;
 
 	}
+//------------------------------------------------------------------
+//
 //if their is only 1 website	
+//
+//------------------------------------------------------------------
 		if (array_length_1d(global.url_1_response)=1){
-		for (s=0; s<(array_length_1d(global.url_1_response)) ;s++){
-			if ds_map_find_value(async_load, "id") == (global.url_1_response[s,0]-1){
+			if (ds_map_find_value(async_load, "id") == (global.url_1_response[0,0]))and (global.url_1_response[0,0] != -1){
+				s=0
 				if ds_map_find_value(async_load, "status") == 0{
 				    //updated
 				    raw_1_output = ds_map_find_value(async_load, "result");
@@ -125,11 +128,9 @@ function http_multi_url(){
 					url_list[s,1]="WEBSITE REPORTS ERROR, WEBSITE CODE: "+string(ds_map_find_value(async_load, "http_status"));
 				    total_errors++
 				    }
-			global.url_1_response[s,0]= -1;
+			global.url_1_response[0,0]= -1;
 			grabber.multi_url_pull_at++//increase progress of where the download is at
-			continue;
 			}
-		}
 		//download file call
 		if ds_map_find_value(async_load, "id") == actual_link{
 		    if ds_map_find_value(async_load, "status") == 0{
@@ -165,5 +166,5 @@ function http_multi_url(){
 		ini_write_real("stats","last_parse_amount",grabber.last_parse_amount);
 		ini_close(); 
 		}
-grabber.currently_downloading=0
+grabber.currently_downloading=0;
 }
