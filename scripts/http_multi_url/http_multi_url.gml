@@ -50,6 +50,7 @@ function http_multi_url(){
 				    total_errors++
 				    }
 			global.url_1_response[s,0]= -1;
+			grabber.multi_url_pull_at++//increase progress of where the download is at
 			continue;
 			}
 		}
@@ -125,6 +126,7 @@ function http_multi_url(){
 				    total_errors++
 				    }
 			global.url_1_response[s,0]= -1;
+			grabber.multi_url_pull_at++//increase progress of where the download is at
 			continue;
 			}
 		}

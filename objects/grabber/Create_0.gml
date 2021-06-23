@@ -79,6 +79,7 @@ history[0,2]="filtered/old,New";
 history[0,3]="Source From:";
 history_at=1;
 history_points_at=1;
+multi_url_pull_at=0;
 
 
 
