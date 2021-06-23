@@ -8,6 +8,7 @@ c="";
 scroll_wheel_spot = 0;
 blink_cursor = 0;
 pop_up_text_lines=0;
+pop_up_text_lines2=0;
 
 //url popup
 if pop_up_type = 0{

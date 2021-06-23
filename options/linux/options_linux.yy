@@ -1,6 +1,6 @@
 {
   "option_linux_display_name": "feedrss",
-  "option_linux_version": "1.1.2",
+  "option_linux_version": "1.1.3",
   "option_linux_maintainer_email": "",
   "option_linux_homepage": "https://github.com/glitchgod/feedrss",
   "option_linux_short_desc": "feedrss allows the grabbing of rss and download torrent files",

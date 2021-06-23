@@ -5,7 +5,7 @@ if instance_exists(pop_up)=false
 //Popup that edits the list
 pop_up_string ="";
 for (d=0;d<array_length_1d(grabber.ignore_list); d++){
- pop_up_string= pop_up_string+ "["+string(d+15)+"]"+string(grabber.ignore_list[d])+"#";
+ pop_up_string= pop_up_string+ "["+string(d+15)+"]"+string(grabber.ignore_list[d])+"# ";
  }
 
 //russain text setup 
@@ -131,32 +131,33 @@ if grabber.no_vids_over_5year=1 or grabber.no_vids_over_1year = 1 {
 } 
 
 //Filter only movies 
-var only_movies=""
+var text_only_movies=""
 if grabber.only_movies = 0{
-    only_movies = "[13] (DISABLED) Filter out videos WITHOUT the category movie (cant work without a category in feed). # ";
+    text_only_movies = "[13] (DISABLED) Filter out videos WITHOUT the category movie (cant work without a category in feed). # ";
 }
 if grabber.only_movies = 1{
-    only_movies = "[13] (ENABLED) Filter out videos WITHOUT the category movie (cant work without a category in feed). # ";
+    text_only_movies = "[13] (ENABLED) Filter out videos WITHOUT the category movie (cant work without a category in feed). # ";
 }
 
 //Filter out episodes
-var only_movies=""
+var text_episodes_on=""
 if grabber.episodes_on = 0{
-    only_movies = "[14] (DISABLED) Filter out videos WITH 'Ep01' - 'Ep100' in the title. # ";
+    text_episodes_on = "[14] (DISABLED) Filter out videos WITH 'Ep01' - 'Ep100' in the title. # ";
 }
 if grabber.episodes_on = 1{
-    only_movies = "[14] (ENABLED) Filter out videos WITH 'Ep01' - 'Ep100' in the title. # ";
+    text_episodes_on = "[14] (ENABLED) Filter out videos WITH 'Ep01' - 'Ep100' in the title. # ";
 }
 //----------------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------------------------------------------------
 
-var spacer = "#-----------------------------------------------------------------------------------# "; 
+var spacer = "#-----------------------------------------------------------------------------------# ";
+var spacer1 = "-----------------------------------------------------------------------------------# "; 
  
-var spacer2 = "------------------------- Custom added Words ------------------------------#"; 
+var spacer2 = "------------------------- Custom added Words ------------------------------#"+"To add a custom word, type in A SINGLE WORD and click ok "+"#"+"DONT' ADD BLANK AREAS TO THE FILTER SYSTEM. IT WILL DENY ANYTHING WITH A SPACE IN THE TITLE"; 
  
-var text_to_show_info = "----------------------"+" WORD FILTER OPTIONS"+"-----------------------------#"+" To enable an option type in the number infront of the Word then hit ok"+ "#To add a custom word, type in A SINGLE WORD and click ok "+"#"+"DONT' ADD BLANK AREAS TO THE FILTER SYSTEM. IT WILL DENY ANYTHING WITH A SPACE IN THE TITLE"+ string(spacer);
-var text_to_show_options = string(russian_text)+string(china_text)+string(japan_text)+string(countries_text)+string(porn_text)+string(text_1080p)+string(webrip_text)+string(text_720p)+string(text_480p)+string(text_1year)+string(text_5year)+string(text_20year)+string(only_movies)+string(spacer2);
+var text_to_show_info = "----------------------"+" WORD FILTER OPTIONS"+"-----------------------------#"+"To enable an option type in the number infront of the Word then hit ok"+string(spacer);
+var text_to_show_options = string(russian_text)+string(china_text)+string(japan_text)+string(countries_text)+string(porn_text)+string(text_1080p)+string(webrip_text)+string(text_720p)+string(text_480p)+string(text_1year)+string(text_5year)+string(text_20year)+string(text_only_movies)+string(text_episodes_on)+string(spacer1)+string(spacer2)+string(spacer);
 var text_to_show_custom_list = string(pop_up_string);
 
 //create popup

@@ -60,7 +60,7 @@
     "eventStubScript": null,
     "parent": {"name":"download_button","path":"sprites/download_button/download_button.yy",},
     "resourceVersion": "1.3",
-    "name": "",
+    "name": "download_button",
     "tags": [],
     "resourceType": "GMSequence",
   },

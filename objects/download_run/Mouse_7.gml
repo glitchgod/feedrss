@@ -7,6 +7,8 @@ if instance_exists(pop_up)=false
 	//delay
 	alarm[0]=(room_speed*10)
 	grabber.currently_downloading=1
+	//reset counter	
+	grabber.multi_url_pull_at=0;
 	}
 
 }

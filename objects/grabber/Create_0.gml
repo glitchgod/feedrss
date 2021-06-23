@@ -57,7 +57,7 @@ episodes_on=0
 
 //update info
 version_current="";
-version_current="1.1.2"
+version_current="1.1.3"
 version_check="";
 hour_check=0;
 hour_check= current_hour;
@@ -79,6 +79,7 @@ history[0,2]="filtered/old,New";
 history[0,3]="Source From:";
 history_at=1;
 history_points_at=1;
+multi_url_pull_at=0;
 
 
 
