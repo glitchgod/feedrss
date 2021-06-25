@@ -5,7 +5,7 @@
 	
 draw_self();
 
-if (grabber.currently_downloading=1 or alarm[0]>0) and (array_length_1d(global.url_1_response)>0){
+if (grabber.currently_downloading=1) and (array_length_1d(global.url_1_response)>0){
 	var each_part = round(real(sprite_get_width(download_button_dark) / array_length_1d(global.url_1_response)));
 	draw_sprite_ext(download_button_dark,-1,x+(each_part*grabber.multi_url_pull_at),y,1,1,0,c_ltgray,1)
 	draw_set_font(font1)
@@ -17,5 +17,5 @@ if (grabber.currently_downloading=1 or alarm[0]>0) and (array_length_1d(global.u
 	draw_text_color(x+sprite_get_width(download_button_dark)/2,y+50,"URL(s) Processed : Total URL(s)          ",c_black,c_black,c_black,c_black,1)
 	draw_text_color(x+sprite_get_width(download_button_dark)/2-2,y+48,"URL(s) Processed : Total URL(s)          ",c_white,c_white,c_white,c_white,1)
 	draw_set_halign(fa_left)//reset all halign
-	draw_rectangle_color(x+sprite_get_width(download_button_dark),y,x+600,y+sprite_get_height(download_button_dark),c_red,c_red,c_red,c_red,false);
+	draw_rectangle_color(x+sprite_get_width(download_button_dark),y,x+600,y+sprite_get_height(download_button_dark),c_ltgrey,c_ltgrey,c_ltgrey,c_ltgrey,false);
 	}
