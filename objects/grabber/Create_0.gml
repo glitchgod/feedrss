@@ -1,6 +1,7 @@
 /// @description set up test variables
 global.folder_folder="";
 global.url_1_response="";
+grabber.github_grab_id ="";
 raw_1_output="";
 array_of_1[0]="";
 array_of_issues[0]="";
@@ -57,12 +58,12 @@ episodes_on=0
 
 //update info
 version_current="";
-version_current="1.1.3"
-version_check="";
+version_current="1.1.4"
+grabber.version_check="";
 hour_check=0;
 hour_check= current_hour;
-github_grab_id="";
-github_grab="";
+grabber.github_grab_id="";
+grabber.github_grab="";
 is_update=0;
 
 
@@ -84,6 +85,7 @@ multi_url_pull_at=0;
 
 
 //run update at start with delay
+//alarm[1]=room_speed*3;
 alarm[1]=room_speed*3;
 
 
