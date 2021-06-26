@@ -42,6 +42,7 @@ function find_the_link(argument0, argument1) {
 	verify=0;
 	global.test_title="";
 	global.inside="";
+	global.inside2="";
 	//verify is for filtering
 	//0 - no filter aka proceed 
 	//1 - filter aka dont download
@@ -126,6 +127,7 @@ function find_the_link(argument0, argument1) {
 			global.test_title = string(titleout)
 	        verify=0
 			denied_reason=""
+			
 		    for (h=0;h<array_length_1d(grabber.full_ignore_list);h++){
 		        global.inside = string(string_lower(grabber.full_ignore_list[h]));
 		        //this causes the for loop to jump back to start if verify is not 0
@@ -133,14 +135,26 @@ function find_the_link(argument0, argument1) {
 				var test_verify = string_pos(string(string_lower(global.inside)), string(string_lower(global.test_title)));
 				if (string_char_at(string_lower(global.test_title),test_verify+string_length(global.inside)+1)=" "){
 					verify = string_pos(string(string_lower(global.inside)), string(string_lower(global.test_title)));
-					
+					continue;
+				}
+				
+				//second loop to see if their is a repeat verify issue following the first
+				else if (string_char_at(string_lower(global.test_title),test_verify+string_length(global.inside)+1)!=" "){
+					for (hh=0;hh<array_length_1d(grabber.full_ignore_list);hh++){
+					global.inside2 = string(string_lower(grabber.full_ignore_list[hh]));
+						if (string_char_at(string_lower(global.test_title),test_verify+string_length(global.inside)+1)=string(string_length(global.inside2))){
+						verify = string_pos(string(string_lower(global.inside)), string(string_lower(global.test_title)));
+						continue;
+						}
 				}
 				
 		        if ((verify !=0) and (string_length(denied_reason)<1)){
 						denied_reason=string(string_lower(grabber.full_ignore_list[h]))
 						h=array_length_1d(grabber.full_ignore_list)
+						continue;
 					}
 		        }
+			}
 			//loop to find the year start then cut off the rest
 			for (m=1900;m<current_year+1;m++){
 				if string_count( string(m), titleout )>0{
