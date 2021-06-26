@@ -4,8 +4,10 @@ if instance_exists(pop_up)=false
 
 //Popup that edits the list
 pop_up_string ="";
+premade_options=0;
+premade_options=15;
 for (d=0;d<array_length_1d(grabber.ignore_list); d++){
- pop_up_string= pop_up_string+ "["+string(d+15)+"]"+string(grabber.ignore_list[d])+"# ";
+ pop_up_string= pop_up_string+ "["+string(d+premade_options)+"]"+string(grabber.ignore_list[d])+"# ";
  }
 
 //russain text setup 

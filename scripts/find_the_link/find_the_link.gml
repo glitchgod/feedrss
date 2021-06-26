@@ -119,6 +119,14 @@ function find_the_link(argument0, argument1) {
 	        if string_char_at(titleout,string_length(titleout)-1)=" " {
 	            titleout= string_copy(titleout,1,string_length(titleout)-1);
 	            }
+			if array_length_1d(grabber.ascii_characters)>1{
+			    hh = array_length_1d(grabber.ascii_characters);
+			    for (ii=0;ii<hh;ii++){
+					if string_count( ii, titleout )>0{
+				            titleout= string_replace_all(titleout, ii, " ");
+				            }
+			        }
+			    }    
 //---------------------------------------------------------------------------------    
 //Process the Title with fitler settings and custom words
 //---------------------------------------------------------------------------------    

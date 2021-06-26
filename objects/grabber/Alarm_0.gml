@@ -139,7 +139,9 @@ if episodes_on=1{
         g=g+4
         }
     }    
-    
+
+	
+	
 if array_length_1d(ignore_list)>0{
     h = array_length_1d(ignore_list);
     for (i=0;i<h;i++){

@@ -92,6 +92,19 @@ if file_exists("common_Kanji_characters.txt") =true {
 	
 }
 
+//ascii character loaded
+
+ascii_characters[0]="";
+ascii_characters_on=0;
+if file_exists("ascii_characters.txt") =true {
+	ascii_file = file_text_open_read("ascii_characters.txt");
+	while (file_text_eof(ascii_file)=false)
+	    {
+	    ascii_characters[ascii_characters_on++] = file_text_readln(ascii_file);
+	    }
+	file_text_close(ascii_file)	
+}
+
 ///common countries
 //countries_on=0;
 
