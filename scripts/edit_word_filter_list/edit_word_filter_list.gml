@@ -26,7 +26,7 @@ function edit_word_filter_list(argument0) {
    
 	   if number_from_result>0{
 	     //check if the number is less than 12
-	     if number_from_result<15{
+	     if number_from_result<edit_button2.premade_options{
 	         switch (number_from_result){
 	         case 1:
 	             if (grabber.russian_on=0){
@@ -175,10 +175,10 @@ function edit_word_filter_list(argument0) {
 	         save_ignore_list();
 	         exit;
 	     }
-	     if number_from_result >= 15{
+	     if number_from_result >= edit_button2.premade_options{
 	         //delete the list of custom
-	         if real(array_length_1d(grabber.ignore_list)+15) >= number_from_result{
-	             grabber.ignore_list[number_from_result-15] = "";
+	         if real(array_length_1d(grabber.ignore_list)+edit_button2.premade_options) >= number_from_result{
+	             grabber.ignore_list[number_from_result-edit_button2.premade_options] = "";
 	             save_ignore_list();
 	             exit;
 	         }

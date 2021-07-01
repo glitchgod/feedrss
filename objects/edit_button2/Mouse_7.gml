@@ -1,11 +1,45 @@
+/// @description filter options
+
 if instance_exists(pop_up)=false
 {
-///edit the list
+
+///refresh the ignore list
+if file_exists(string(working_directory)+"ignore_list.ini")=true{
+    ini_open(string(working_directory)+"ignore_list.ini");
+    var total_ignore=ini_read_real("Amount of ignore","Ignore_count",0);
+    
+    grabber.russian_on = ini_read_real("russian_on","russian_on",0);
+    grabber.china_on = ini_read_real("china_text","china_on",0);
+    grabber.japan_on = ini_read_real("japan_text","japan_on",0);
+    grabber.countries_on = ini_read_real("countries_on","countries_on",0);
+    grabber.porn_on = ini_read_real("porn_on","porn_on",0);
+    grabber.not_1080p = ini_read_real("not_1080p","not_1080p",0);
+    grabber.not_webrip = ini_read_real("not_webrip","not_webrip",0);
+    grabber.not_720p = ini_read_real("not_720p","not_720p",0);
+    grabber.not_480p = ini_read_real("not_480p","not_480p",0);
+    grabber.only_movies = ini_read_real("only_movies","only_movies",0);
+    grabber.no_vids_over_1year = ini_read_real("no_vids_over_1year","no_vids_over_1year",0);
+    grabber.no_vids_over_5year = ini_read_real("no_vids_over_5year","no_vids_over_5year",0);
+    grabber.no_vids_over_20year = ini_read_real("no_vids_over_20year","no_vids_over_20year",0);
+    grabber.only_movies = ini_read_real("only_movies","only_movies",0);
+	grabber.episodes_on = ini_read_real("episodes_on","episodes_on",0);
+    
+    if total_ignore>0 {
+    for (c=0; c<total_ignore;c++) {
+        grabber.ignore_list[c]=ini_read_string("Ignore_list",c,"");
+        }
+    }    
+    ini_close(); 
+}
+grabber.alarm[0]=1;
+
 
 //Popup that edits the list
 pop_up_string ="";
+premade_options=0;
+premade_options=15;
 for (d=0;d<array_length_1d(grabber.ignore_list); d++){
- pop_up_string= pop_up_string+ "["+string(d+15)+"]"+string(grabber.ignore_list[d])+"# ";
+ pop_up_string= pop_up_string+ "["+string(d+premade_options)+"]"+string(grabber.ignore_list[d])+"# ";
  }
 
 //russain text setup 
