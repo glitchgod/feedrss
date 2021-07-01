@@ -4,7 +4,7 @@ I made this program as I keep having issues with torrent engines updating and br
 I would call this something like flexget but very easy plug and play.
 <hr>
 </hr>
-Current Version = 1.1.2 <br>
+Current Version = 1.1.4 <br>
 Built ready to go Linux packages listed in release section.
 Built ready to go Windows packages listed in release section.
 
