@@ -42,7 +42,6 @@ function find_the_link(argument0, argument1) {
 	verify=0;
 	global.test_title="";
 	global.inside="";
-	global.inside2="";
 	//verify is for filtering
 	//0 - no filter aka proceed 
 	//1 - filter aka dont download
@@ -81,7 +80,16 @@ function find_the_link(argument0, argument1) {
 //---------------------------------------------------------------------------------    
 //Clean up the title for further processing
 //---------------------------------------------------------------------------------    	
-
+			/*
+			if array_length_1d(grabber.ascii_characters)>1{
+			    hh = array_length_1d(grabber.ascii_characters);
+			    for (ii=0;ii<hh;ii++){
+					if string_count( ii, titleout )>0{
+				            titleout= string_replace_all(titleout, ii, " ");
+				            }
+			        }
+			    }
+			*/
 	        if string_count( "[", titleout )>0{
 	            titleout= string_replace_all(titleout, "[", " ");
 	            }
@@ -119,14 +127,6 @@ function find_the_link(argument0, argument1) {
 	        if string_char_at(titleout,string_length(titleout)-1)=" " {
 	            titleout= string_copy(titleout,1,string_length(titleout)-1);
 	            }
-			if array_length_1d(grabber.ascii_characters)>1{
-			    hh = array_length_1d(grabber.ascii_characters);
-			    for (ii=0;ii<hh;ii++){
-					if string_count( ii, titleout )>0{
-				            titleout= string_replace_all(titleout, ii, " ");
-				            }
-			        }
-			    }    
 //---------------------------------------------------------------------------------    
 //Process the Title with fitler settings and custom words
 //---------------------------------------------------------------------------------    
@@ -139,39 +139,35 @@ function find_the_link(argument0, argument1) {
 		    for (h=0;h<array_length_1d(grabber.full_ignore_list);h++){
 		        global.inside = string(string_lower(grabber.full_ignore_list[h]));
 		        //this causes the for loop to jump back to start if verify is not 0
-				
-				var test_verify = string_pos(string(string_lower(global.inside)), string(string_lower(global.test_title)));
-				if (string_char_at(string_lower(global.test_title),test_verify+string_length(global.inside)+1)=" "){
-					verify = string_pos(string(string_lower(global.inside)), string(string_lower(global.test_title)));
-					continue;
-				}
-				
-				//second loop to see if their is a repeat verify issue following the first
-				else if (string_char_at(string_lower(global.test_title),test_verify+string_length(global.inside)+1)!=" "){
-					for (hh=0;hh<array_length_1d(grabber.full_ignore_list);hh++){
-					global.inside2 = string(string_lower(grabber.full_ignore_list[hh]));
-						if (string_char_at(string_lower(global.test_title),test_verify+string_length(global.inside)+1)=string(string_length(global.inside2))){
-						verify = string_pos(string(string_lower(global.inside)), string(string_lower(global.test_title)));
-						continue;
-						}
-				}
-				
-		        if ((verify !=0) and (string_length(denied_reason)<1)){
+				if (string_count(string(string_lower(global.inside)), string(string_lower(global.test_title)))!=0) and (verify=0){
+					if (string_count(string(string_lower(global.inside))+" ", string(string_lower(global.test_title)))>=1){
+						verify=1
 						denied_reason=string(string_lower(grabber.full_ignore_list[h]))
 						h=array_length_1d(grabber.full_ignore_list)
-						continue;
+						}
+					if ((string_length(string(string_lower(global.inside))))=1){
+						verify = 1;
+						denied_reason=string(string_lower(grabber.full_ignore_list[h]))
+						h=array_length_1d(grabber.full_ignore_list)
+						}
 					}
-		        }
+				}
+				/*
+		        if ((verify !=0) and (string_length(denied_reason)<1)){
+						denied_reason=string(string_lower(grabber.full_ignore_list[h-1]))
+				}
+				if verify>0{
+					h=array_length_1d(grabber.full_ignore_list)
+				}*/
 			}
 			//loop to find the year start then cut off the rest
 			for (m=1900;m<current_year+1;m++){
 				if string_count( string(m), titleout )>0{
-					titleout= string_copy(titleout,1,real(string_pos(string(m),titleout))-2);
+					titleout = string_copy(titleout,1,real(string_pos(real(m),titleout))-2)
 					continue;
 			    }
 				
 			}
-	    }
 	    //no title
 	    if string_count( "<title>", section_found )<=0 {
 	        titleout=string("No Title Found");

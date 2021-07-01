@@ -3,6 +3,8 @@ function http_multi_url(){
 	if is_array(global.url_1_response)=true{
 //if their is more then website	
 		if (array_length_1d(global.url_1_response)>1){
+			
+		grabber.currently_downloading=1;
 		for (s=0; s<(array_length_1d(global.url_1_response)-1) ;s++){
 			if ds_map_find_value(async_load, "id") == (global.url_1_response[s,0]-1){
 				if ds_map_find_value(async_load, "status") == 0{
