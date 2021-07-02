@@ -11,7 +11,7 @@ function find_the_link(argument0, argument1) {
 	keyword="<item>";//test
 
 	keyword_end=string_insert("/", argument1, 2);
-	items_found=-1;
+	grabber.items_found=-1;
 	grabber.history_at=-1
 
 	//foreach section
@@ -131,6 +131,7 @@ function find_the_link(argument0, argument1) {
 //Process the Title with fitler settings and custom words
 //---------------------------------------------------------------------------------    
 
+
 	        //run the filter list here
 			global.test_title = string(titleout)
 	        verify=0
@@ -143,28 +144,24 @@ function find_the_link(argument0, argument1) {
 					if (string_count(string(string_lower(global.inside))+" ", string(string_lower(global.test_title)))>=1){
 						verify=1
 						denied_reason=string(string_lower(grabber.full_ignore_list[h]))
-						h=array_length_1d(grabber.full_ignore_list)
+						break;
 						}
 					if ((string_length(string(string_lower(global.inside))))=1){
 						verify = 1;
 						denied_reason=string(string_lower(grabber.full_ignore_list[h]))
-						h=array_length_1d(grabber.full_ignore_list)
+						break;
 						}
 					}
+					if verify=1{
+						break;
+					}
 				}
-				/*
-		        if ((verify !=0) and (string_length(denied_reason)<1)){
-						denied_reason=string(string_lower(grabber.full_ignore_list[h-1]))
-				}
-				if verify>0{
-					h=array_length_1d(grabber.full_ignore_list)
-				}*/
 			}
 			//loop to find the year start then cut off the rest
 			for (m=1900;m<current_year+1;m++){
 				if string_count( string(m), titleout )>0{
 					titleout = string_copy(titleout,1,real(string_pos(real(m),titleout))-2)
-					continue;
+					break;
 			    }
 				
 			}
