@@ -27,15 +27,6 @@ if (grabber.version_check != "")&& (is_update=0){
 }
 
 //check the status if the download is happening and handle it accordingly
-//if (is_array(global.url_1_response)=true) and (array_length_1d(global.url_1_response)>0){
-if (array_length_1d(global.url_1_response)>0){
-	//if (grabber.multi_url_pull_at>=0 and grabber.multi_url_pull_at<real(array_length_1d(global.url_1_response))-1) and (array_length_1d(global.url_1_response)>0){
-	if (grabber.multi_url_pull_at>real(array_length_1d(global.url_1_response))-1) {// and (array_length_1d(global.url_1_response)>0){
-		//grabber.currently_downloading=0;
-		//grabber.multi_url_pull_at= -1;
-	}
-}
-
 if (global.url_1_response="") or (grabber.multi_url_pull_at>=real(array_length_1d(global.url_1_response))-1){
 		grabber.currently_downloading=0;
 }

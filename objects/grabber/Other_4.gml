@@ -156,22 +156,3 @@ porn_terms[13]="Throa";
 porn_terms[14]="Facial";
 porn_terms[15]="Orgy";
 porn_terms[16]="xxx";
-
-///common ban words
-/*
-//not_1080p= 0;
-//not_webrip=0;
-//not_720p=0;
-//not_480p=0;
-//no_vids_over_1year=0;
-//no_vids_over_5year=0;
-//no_vids_over_20year=0;
-
-*/
-
-/* */
-///custom ban words
-//ignore_list[0]="";
-
-/* */
-/*  */
