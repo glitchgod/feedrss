@@ -1,7 +1,6 @@
 /// @description filter options
 
-if instance_exists(pop_up)=false
-{
+if (instance_exists(pop_up)=false) and (grabber.currently_downloading=0){
 
 ///refresh the ignore list
 if file_exists(string(working_directory)+"ignore_list.ini")=true{
@@ -31,7 +30,7 @@ if file_exists(string(working_directory)+"ignore_list.ini")=true{
     }    
     ini_close(); 
 }
-grabber.alarm[0]=1;
+//grabber.alarm[0]=1;
 
 
 //Popup that edits the list

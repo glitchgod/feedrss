@@ -1,4 +1,4 @@
-/// @description setup the full_ignore_list
+/// @description setup the full_ignore_list and pull rss feeds
 g = 0
 full_ignore_list="";
 if russian_on=1{
@@ -153,16 +153,20 @@ if array_length_1d(ignore_list)>0{
     }
 
 ///setup url based on timer
-last_found_amount=0
+last_download_amount=0
 last_parse_amount=0
 total_errors=0
 global.url_1_response[0]=-1;
-for (d=0;d<array_height_2d(url_list);d++){
-	if http_get(url_list[d,0])>0{
-		grabber.currently_downloading=1;
-	    global.url_1_response[d,0]=http_get(url_list[d,0]);
-		}
-    }
+if ((grabber.Url_count)>0){ 
+	for (d=0;d<array_height_2d(url_list);d++){
+		if http_get(url_list[d,0])>0{
+			grabber.last_download_amount=0 //reset download count
+			grabber.last_parse_amount=0//reset the parse count		
+			grabber.currently_downloading=1;
+		    global.url_1_response[d,0]=http_get(url_list[d,0]);
+			}
+	    }
+	}
 last_updated=date_datetime_string(date_current_datetime());
 last_updated=string_delete(last_updated,28,string_length(last_updated)-26);
 

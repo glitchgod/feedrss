@@ -25,3 +25,8 @@ if (grabber.version_check != "")&& (is_update=0){
 		instance_activate_object(update_button);
 	}
 }
+
+//check the status if the download is happening and handle it accordingly
+if (global.url_1_response="") or (grabber.multi_url_pull_at>=real(array_length_1d(global.url_1_response))-1){
+		grabber.currently_downloading=0;
+}
