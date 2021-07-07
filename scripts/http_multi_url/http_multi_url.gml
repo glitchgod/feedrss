@@ -8,6 +8,9 @@ function http_multi_url(){
 		for (s=0; s<(array_length_1d(global.url_1_response)-1) ;s++){
 			if ds_map_find_value(async_load, "id") == (global.url_1_response[s,0]-1){
 				if ds_map_find_value(async_load, "status") == 0{
+					
+					grabber.last_download_amount=0 //reset download count
+					grabber.last_parse_amount=0//reset the parse count
 				    //updated
 				    raw_1_output = ds_map_find_value(async_load, "result");
        
@@ -26,12 +29,12 @@ function http_multi_url(){
 				        //update file stats
 				        if file_exists(string(working_directory)+"tool_stats.ini")= false{
 				            var tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
-				            ini_write_real("stats","last_download_total",grabber.last_found_amount);
+				            ini_write_real("stats","last_download_total",grabber.last_download_amount);
 				            ini_close(); 
 				            }
 				        if file_exists(string(working_directory)+"tool_stats.ini")= true{
 				            var tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
-				            ini_write_real("stats","last_download_total",grabber.last_found_amount);
+				            ini_write_real("stats","last_download_total",grabber.last_download_amount);
 				            ini_close(); 
 				            }
 				        }
@@ -88,11 +91,14 @@ function http_multi_url(){
 			if (ds_map_find_value(async_load, "id") == (global.url_1_response[0,0]))and (global.url_1_response[0,0] != -1){
 				s=0
 				if ds_map_find_value(async_load, "status") == 0{
+					grabber.last_download_amount=0 //reset download count
+					grabber.last_parse_amount=0//reset the parse count
+					
 				    //updated
 				    raw_1_output = ds_map_find_value(async_load, "result");
        
 				    //run the scan for the download files
-				    array_of_1=find_the_link(raw_1_output,"<item>");
+			    array_of_1=find_the_link(raw_1_output,"<item>");
        
 				    //if array comes up larger than 0
 				    if array_height_2d(array_of_1)>0{
@@ -106,12 +112,12 @@ function http_multi_url(){
 				        //update file stats
 				        if file_exists(string(working_directory)+"tool_stats.ini")= false{
 				            var tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
-				            ini_write_real("stats","last_download_total",grabber.last_found_amount);
+				            ini_write_real("stats","last_download_total",grabber.last_download_amount);
 				            ini_close(); 
 				            }
 				        if file_exists(string(working_directory)+"tool_stats.ini")= true{
 				            var tool_stats_file = ini_open(string(working_directory)+"tool_stats.ini");
-				            ini_write_real("stats","last_download_total",grabber.last_found_amount);
+				            ini_write_real("stats","last_download_total",grabber.last_download_amount);
 				            ini_close(); 
 				            }
 				        }

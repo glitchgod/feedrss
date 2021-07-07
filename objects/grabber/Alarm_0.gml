@@ -153,7 +153,7 @@ if array_length_1d(ignore_list)>0{
     }
 
 ///setup url based on timer
-last_found_amount=0
+last_download_amount=0
 last_parse_amount=0
 total_errors=0
 global.url_1_response[0]=-1;

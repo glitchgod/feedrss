@@ -24,7 +24,7 @@ timer_live="";
 total_errors=0;
 last_updated="";
 last_parse_amount=0;
-last_found_amount=0;
+last_download_amount=0;
 //--also timer_minutes gets loaded to--//
 url_list[0]="";
 url_list[0,0]="";
@@ -99,7 +99,7 @@ if file_exists(string(working_directory)+"tool_stats.ini"){
     ini_open(string(working_directory)+"tool_stats.ini");
     timer_minutes=ini_read_real("settings","minutes",5);
     last_parse_amount=ini_read_real("stats","last_parse_amount",0);
-    last_found_amount=ini_read_real("stats","last_found_amount",0);
+    last_download_amount=ini_read_real("stats","last_download_amount",0);
     last_updated=ini_read_string("stats","last_update_time","00:00:00");
     save_file_location=ini_read_string("stats","save_file_location","");
     ini_close(); 

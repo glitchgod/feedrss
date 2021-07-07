@@ -336,6 +336,7 @@ function find_the_link(argument0, argument1) {
 		grabber.history[grabber.history_at,2]="filtered/old,New";
 		grabber.history[grabber.history_at,3]=grabber.url_list[s,0];
     current_count++;
+	grabber.last_parse_amount++
 	}until ((string_pos(string(keyword), current_link)==0) or (current_count>max_count))
 	return scanned_items;
 }
