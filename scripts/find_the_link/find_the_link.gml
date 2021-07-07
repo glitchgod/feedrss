@@ -37,7 +37,7 @@ function find_the_link(argument0, argument1) {
 	end_enclosure_url=""
 	denied_reason=""
 	downedout="" //say if their is an error or nothing, if nothing then it downloads
-
+	
 	//check off to continue
 	verify=0;
 	global.test_title="";
@@ -300,22 +300,18 @@ function find_the_link(argument0, argument1) {
 //Process the grabDate
 //---------------------------------------------------------------------------------    
 
-	    
 		grabDateout = string(date_datetime_string(date_current_datetime()));
 
 //---------------------------------------------------------------------------------    
 //Final Process
 //---------------------------------------------------------------------------------    
     
-	    
 		items_found++;
 		grabber.history_at++;
-		
 		
 		if verify!=0{
 			downedout= string("NOT DOWNLOADED DUE TO FILTER SETTINGS :")+string(categoryissue)+string(" : ")+string(denied_reason);
 		}
-	    
     
 	    //array to add to
 	    scanned_items[items_found,0]=titleout;
