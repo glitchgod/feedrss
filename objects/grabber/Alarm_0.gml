@@ -157,7 +157,7 @@ last_download_amount=0
 last_parse_amount=0
 total_errors=0
 global.url_1_response[0]=-1;
-if (is_array(grabber.Url_count)=true)  and (array_length_1d(grabber.Url_count)>=1){ 
+if ((grabber.Url_count)>0){ 
 	for (d=0;d<array_height_2d(url_list);d++){
 		if http_get(url_list[d,0])>0{
 			grabber.last_download_amount=0 //reset download count

@@ -1,6 +1,6 @@
-if (instance_exists(pop_up)=false) and (is_array(grabber.Url_count)=true) and (download_run.alarm[0]<=0){
+if (instance_exists(pop_up)=false) and ((grabber.Url_count)>0) and (download_run.alarm[0]<=0){
 	
-	if (grabber.currently_downloading=0) and (array_length_1d(grabber.Url_count)>=1){
+	if (grabber.currently_downloading=0) and ((grabber.Url_count)>0){
 	///manualy download from the list
 	grabber.last_parse_amount=0
 	//delay
