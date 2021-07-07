@@ -1,6 +1,5 @@
 /// @description edit website source list
-if instance_exists(pop_up)=false
-{
+if (instance_exists(pop_up)=false) and (grabber.currently_downloading=0){
 ///refresh list	
 
 //load url list file

@@ -110,3 +110,5 @@ if mouse_x>=24 and mouse_x <= room_width-(room_width/2)-28{
         }
     }
 }
+//add delay to the download_run.alarm[0]=5 as to not double click
+download_run.alarm[0]=5

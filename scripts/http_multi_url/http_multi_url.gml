@@ -68,6 +68,10 @@ function http_multi_url(){
 				    total_errors++
 				    }
 			global.url_1_response[s,0]= -1;
+			//set grabber.multi_url_pull_at to the proper start point of not null
+			if grabber.multi_url_pull_at= -1{
+				grabber.multi_url_pull_at=0
+			}
 			grabber.multi_url_pull_at++//increase progress of where the download is at
 			continue;
 			}
@@ -166,6 +170,10 @@ function http_multi_url(){
 						}
 				    }
 			global.url_1_response[0,0]= -1;
+			//set grabber.multi_url_pull_at to the proper start point of not null
+			if grabber.multi_url_pull_at= -1{
+				grabber.multi_url_pull_at=0
+			}
 			grabber.multi_url_pull_at++//increase progress of where the download is at
 			}
 		//download file call
@@ -203,6 +211,4 @@ function http_multi_url(){
 		ini_write_real("stats","last_parse_amount",grabber.last_parse_amount);
 		ini_close(); 
 		}
-grabber.currently_downloading=0;
-grabber.multi_url_pull_at= -1;
 }
