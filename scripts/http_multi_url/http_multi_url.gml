@@ -36,12 +36,21 @@ function http_multi_url(){
 				            ini_close(); 
 				            }
 				        }
+				    //reset error code if there was one in the past
+					url_list[s,1]="None";
        
 				}
 				if ds_map_find_value(async_load, "status") < 0{
 				    //error in grab
 				    raw_1_output = "ERROR";
-					url_list[s,1]="URL ERROR";
+					url_list[s,1]="URL ERROR (Possible Dead Link)";
+					
+					//update url file of an error
+					if file_exists(string(working_directory)+"url_list.ini")=true{
+					    ini_open(string(working_directory)+"url_list.ini");
+					    ini_write_string("Amountofurl",string(s)+string("_issue"),url_list[s,1]);
+						ini_close(); 
+						}
 				
 				    total_errors++
 				    }
@@ -49,6 +58,13 @@ function http_multi_url(){
 				    //error in grab
 				    raw_1_output = "ERROR";
 					url_list[s,1]="WEBSITE REPORTS ERROR, WEBSITE CODE: "+string(ds_map_find_value(async_load, "http_status"));
+					
+					//update url file of an error
+					if file_exists(string(working_directory)+"url_list.ini")=true{
+					    ini_open(string(working_directory)+"url_list.ini");
+					    ini_write_string("Amountofurl",string(s)+string("_issue"),url_list[s,1]);
+						ini_close(); 
+						}
 				    total_errors++
 				    }
 			global.url_1_response[s,0]= -1;
@@ -119,12 +135,21 @@ function http_multi_url(){
 				            ini_close(); 
 				            }
 				        }
+				    //reset error code if there was one in the past
+					url_list[s,1]="None";
        
 				}
 				if ds_map_find_value(async_load, "status") < 0{
 				    //error in grab
 				    raw_1_output = "ERROR";
 					url_list[s,1]="URL ERROR";
+					
+					//update url file of an error
+					if file_exists(string(working_directory)+"url_list.ini")=true{
+					    ini_open(string(working_directory)+"url_list.ini");
+					    ini_write_string("Amountofurl",string(s)+string("_issue"),url_list[s,1]);
+						ini_close(); 
+						}
 				
 				    total_errors++
 				    }
@@ -132,7 +157,13 @@ function http_multi_url(){
 				    //error in grab
 				    raw_1_output = "ERROR";
 					url_list[s,1]="WEBSITE REPORTS ERROR, WEBSITE CODE: "+string(ds_map_find_value(async_load, "http_status"));
-				    total_errors++
+					
+					//update url file of an error
+					if file_exists(string(working_directory)+"url_list.ini")=true{
+					    ini_open(string(working_directory)+"url_list.ini");
+					    ini_write_string("Amountofurl",string(s)+string("_issue"),url_list[s,1]);
+						ini_close(); 
+						}
 				    }
 			global.url_1_response[0,0]= -1;
 			grabber.multi_url_pull_at++//increase progress of where the download is at
