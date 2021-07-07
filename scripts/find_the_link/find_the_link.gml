@@ -120,6 +120,19 @@ function find_the_link(argument0, argument1) {
 	        if string_count( "-", titleout )>0{
 	            titleout= string_replace_all(titleout, "-", " ");
 	            }
+	        if string_count( ";", titleout )>0{
+	            titleout= string_replace_all(titleout, ";", " ");
+	            }
+	        if string_count( ":", titleout )>0{
+	            titleout= string_replace_all(titleout, ":", " ");
+	            }
+	        if string_count( "  ", titleout )>0{
+	            titleout= string_replace_all(titleout, "  ", " ");
+	            }
+	        if string_count( "/", titleout )>0{
+	            titleout= string_replace_all(titleout, "/", " ");
+	            }
+				
 				
 	        if string_char_at(titleout,1)=" " {
 	            titleout= string_copy(titleout,2,string_length(titleout));
@@ -127,6 +140,15 @@ function find_the_link(argument0, argument1) {
 	        if string_char_at(titleout,string_length(titleout)-1)=" " {
 	            titleout= string_copy(titleout,1,string_length(titleout)-1);
 	            }
+				
+//---------------------------------------------------------------------------------    
+//Fix HTML code that coverts symbols to a set of seperate code.
+//---------------------------------------------------------------------------------   
+
+	        if string_count("&amp;apos;", titleout )>0{
+	            titleout= string_replace_all(titleout, "&amp;apos;", "'");
+	            }
+				
 //---------------------------------------------------------------------------------    
 //Process the Title with fitler settings and custom words
 //---------------------------------------------------------------------------------    
@@ -231,14 +253,14 @@ function find_the_link(argument0, argument1) {
 //---------------------------------------------------------------------------------    
 
 	    //find the linkout directly
-	    if string_count( "<link>", section_found )>0 {//&& verify = 0{
+	    if string_count( "<link>", section_found )>0  and linkout=""{//&& verify = 0{
 	        link_start=string_pos(string("<link>"), section_found)+6; 
 	        link_end=string_pos(string("</link>"), section_found)-link_start;
 	        linkout= string_copy(section_found,link_start,link_end);
 	    }
 		
 		//Filter out hash given links
-		if string_count( "<info_hash>", section_found )>0 {//&& verify = 0{
+		if string_count( "<info_hash>", section_found )>0  and linkout=""{//&& verify = 0{
 	        start_info_hashed_at=string_pos(string("<info_hash>"), section_found)+11; 
 	        end_info_hashed_at=string_pos(string("</info_hash>"), section_found)-start_info_hashed_at;
 	        info_hashed_out= string_copy(section_found,start_info_hashed_at,end_info_hashed_at);
@@ -246,7 +268,7 @@ function find_the_link(argument0, argument1) {
 			}
 		
 	    //Filter out direct magnet links
-	    if string_count( "magnet:?xt",string_lower(linkout) )>0  {//&& verify = 0{
+	    if string_count( "magnet:?xt",string_lower(linkout) )>0   and linkout=""{//&& verify = 0{
 			
 			if string_count( "dn=",string_lower(linkout) )>0 {
 				end_hash_at=real(string_pos(string("dn="), linkout))-27; 
@@ -260,12 +282,11 @@ function find_the_link(argument0, argument1) {
 	    }
 		
 		//Filter out embeded links
-		if string_count( "<enclosure url=", section_found )>0 {//&& verify = 0{
+		if string_count( "<enclosure url=", section_found )>0 and linkout="" {//&& verify = 0{
 	        start_enclosure_url=string_pos(string("<enclosure url="), section_found)+16; 
 	        end_enclosure_url=string_pos(string(".torrent"), section_found)-start_enclosure_url+8;
-	        linkout= string_copy(section_found,start_enclosure_url,end_enclosure_url);
-			}
-		
+	        linkout= string_copy(section_found,start_enclosure_url,end_enclosure_url);			
+			}		
 		
 	    //no link Found
 	    if  linkout="" {//string_count( "<link>", section_found )<=0 && string_count( "<info_hash>", section_found )<=0{
