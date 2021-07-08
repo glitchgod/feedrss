@@ -30,7 +30,7 @@ This program doesnt edit, change, or effect your torrent downloader of choice, s
 
 - A download now button to force a parse of all listed websites
 
-- Only 35mb on idle and only goes up 1-3mb per url added.
+- Only 39mb on idle and only goes up 3-6mb per url added.
 
 - Compare feed to past downloads to improve less duplicates.
 
