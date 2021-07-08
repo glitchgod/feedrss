@@ -85,7 +85,6 @@ multi_url_pull_at=0;
 
 
 //run update at start with delay
-//alarm[1]=room_speed*3;
 alarm[1]=room_speed*3;
 
 

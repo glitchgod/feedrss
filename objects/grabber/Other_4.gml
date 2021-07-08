@@ -93,7 +93,7 @@ if file_exists("common_Kanji_characters.txt") =true {
 }
 
 //ascii character loaded
-
+/*
 ascii_characters[0]="";
 ascii_characters_on=0;
 if file_exists("ascii_characters.txt") =true {
@@ -104,6 +104,7 @@ if file_exists("ascii_characters.txt") =true {
 	    }
 	file_text_close(ascii_file)	
 }
+*/
 
 ///common countries
 //countries_on=0;

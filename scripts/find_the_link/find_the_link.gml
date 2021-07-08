@@ -26,7 +26,7 @@ function find_the_link(argument0, argument1) {
 	categoryissue="";
 	scanned_items[0]="";
 	current_count=0;
-	max_count=125; //the amount of urls allowed to be processed at a time.... maybe allow customization in future.
+	max_count=100; //the amount of urls allowed to be processed at a time.... maybe allow customization in future.
 	start_hash_at=0;
 	end_hash_at=0;
 	hash_out="";
@@ -164,13 +164,17 @@ function find_the_link(argument0, argument1) {
 		        //this causes the for loop to jump back to start if verify is not 0
 				if (string_count(string(string_lower(global.inside)), string(string_lower(global.test_title)))!=0) and (verify=0){
 					if (string_count(string(string_lower(global.inside))+" ", string(string_lower(global.test_title)))>=1){
-						verify=1
 						denied_reason=string(string_lower(grabber.full_ignore_list[h]))
+						if (denied_reason!="0"){
+							verify=1
+							}
 						break;
 						}
 					if ((string_length(string(string_lower(global.inside))))=1){
-						verify = 1;
 						denied_reason=string(string_lower(grabber.full_ignore_list[h]))
+						if (denied_reason!="0"){
+							verify=1
+							}
 						break;
 						}
 					}
@@ -289,12 +293,12 @@ function find_the_link(argument0, argument1) {
 			}		
 		
 	    //no link Found
-	    if  linkout="" {//string_count( "<link>", section_found )<=0 && string_count( "<info_hash>", section_found )<=0{
+	    if  linkout="" {
 	        linkout= string("No Link/enclosure url/info_hash Found");
 	    }
 	    //yes linkout filter says dont add
 	    if string_count( "<link>", section_found )>0 && verify != 0{
-	        linkout= linkout + string(" : NOT DOWNLOADED DUE TO FILTER SETTINGS")//+ string(" : ")+string(denied_reason);
+	        linkout= linkout + string(" : NOT DOWNLOADED DUE TO FILTER SETTINGS")
 	    }
 //---------------------------------------------------------------------------------    
 //Process the grabDate
