@@ -50,6 +50,8 @@ This program doesnt edit, change, or effect your torrent downloader of choice, s
 
 - If a rss feed is more than 1,500 torrents the program locks up for multiple seconds but <strong>does</strong> pull through eventually.
 
+- Random text inputed in the url rss feed list may cause crashing. 
+- 
 - Typos… 
 
 <h2>Dependencies that may be required based on linux distro:</h2>
