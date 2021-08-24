@@ -8,14 +8,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 44,
+  "bbox_right": 63,
   "bbox_top": 0,
-  "bbox_bottom": 44,
+  "bbox_bottom": 64,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 45,
-  "height": 45,
+  "width": 64,
+  "height": 65,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"55076796-eb75-4a88-a8b9-ca7e3d10d7f1","path":"sprites/search_Folder_Icon/search_Folder_Icon.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"55076796-eb75-4a88-a8b9-ca7e3d10d7f1","path":"sprites/search_Folder_Icon/search_Folder_Icon.yy",},"LayerId":{"name":"35824de3-2ecc-4def-996d-eaec67242a2a","path":"sprites/search_Folder_Icon/search_Folder_Icon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"search_Folder_Icon","path":"sprites/search_Folder_Icon/search_Folder_Icon.yy",},"resourceVersion":"1.0","name":"55076796-eb75-4a88-a8b9-ca7e3d10d7f1","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"973024d0-4fd7-48e7-8ddf-8314ab4b4b28","path":"sprites/question_mark/question_mark.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"973024d0-4fd7-48e7-8ddf-8314ab4b4b28","path":"sprites/question_mark/question_mark.yy",},"LayerId":{"name":"5071d90a-044d-463f-889b-96847fde925e","path":"sprites/question_mark/question_mark.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"question_mark","path":"sprites/question_mark/question_mark.yy",},"resourceVersion":"1.0","name":"973024d0-4fd7-48e7-8ddf-8314ab4b4b28","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"search_Folder_Icon","path":"sprites/search_Folder_Icon/search_Folder_Icon.yy",},
+    "spriteId": {"name":"question_mark","path":"sprites/question_mark/question_mark.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"7294aed8-16f1-4541-b3cf-c170db3362bd","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"55076796-eb75-4a88-a8b9-ca7e3d10d7f1","path":"sprites/search_Folder_Icon/search_Folder_Icon.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"9a791f8e-042d-407a-88e2-765b8762cf2e","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"973024d0-4fd7-48e7-8ddf-8314ab4b4b28","path":"sprites/question_mark/question_mark.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,14 +58,14 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"search_Folder_Icon","path":"sprites/search_Folder_Icon/search_Folder_Icon.yy",},
+    "parent": {"name":"question_mark","path":"sprites/question_mark/question_mark.yy",},
     "resourceVersion": "1.3",
-    "name": "search_Folder_Icon",
+    "name": "question_mark",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"35824de3-2ecc-4def-996d-eaec67242a2a","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"5071d90a-044d-463f-889b-96847fde925e","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
@@ -73,7 +73,7 @@
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "search_Folder_Icon",
+  "name": "question_mark",
   "tags": [],
   "resourceType": "GMSprite",
 }
