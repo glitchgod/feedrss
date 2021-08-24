@@ -194,7 +194,7 @@ var text_to_show_options = string(russian_text)+string(china_text)+string(japan_
 var text_to_show_custom_list = string(pop_up_string);
 
 //create popup
-var pop = instance_create_depth(x,y,0,pop_up);
+var pop = instance_create(x,y,pop_up);
 pop.pop_up_type =1
 pop.pop_up_text=string(text_to_show_info)+string(text_to_show_options)+string(text_to_show_custom_list)+string(spacer);
 pop_up.pop_up_text_lines += string_count("#",text_to_show_info) +  string_count("#",text_to_show_options);
