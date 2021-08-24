@@ -1,6 +1,6 @@
 /// @description draw info
 draw_set_font(font0);
-draw_set_color(c_black);
+draw_set_color(c_white);
 draw_text(x,y+32*.65,string_hash_to_newline("Timer set at: "+string(timer_minutes)+" minutes"));
 draw_text(x,y+32*1.65,string_hash_to_newline("Update in: "+string( timer_live)));
 draw_text(x,y+32*2.65,string_hash_to_newline("Website Errors: "+string(total_errors)));
