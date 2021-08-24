@@ -1,5 +1,0 @@
-found website itorrents.org that can allow people to upload hash and get the file
-
-"https://itorrents.org/torrent/" + hash + ".torrent"
-
-hashes are 40 characters long
