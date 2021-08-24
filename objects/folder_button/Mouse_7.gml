@@ -6,7 +6,7 @@ pop_up_string ="";
 var spacer = "#------------------------------------------------------------------------------------# "; 
 
 //create popup
-var pop = instance_create(x,y,pop_up);
+var pop = instance_create_depth(x,y,0,pop_up);
 var see_directory = string(grabber.save_file_location);
 if string_length(see_directory)<=2{
 	see_directory = "[Not Set Yet / Not Set Properly]"

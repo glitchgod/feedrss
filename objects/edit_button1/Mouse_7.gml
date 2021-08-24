@@ -19,7 +19,7 @@ if file_exists(string(working_directory)+"url_list.ini")=true{
 	
 ///edit the list
 
-var pop = instance_create(x,y,pop_up);
+var pop = instance_create_depth(x,y,0,pop_up);
 pop.pop_up_type =0
 
 }
