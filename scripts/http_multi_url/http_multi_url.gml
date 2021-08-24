@@ -1,5 +1,5 @@
 function http_multi_url(){
-	/*
+	
 	if is_array(global.url_1_response)=true{
 //if their is more then website	
 		if (array_length_1d(global.url_1_response)>1){	
@@ -211,5 +211,4 @@ function http_multi_url(){
 		ini_write_real("stats","last_parse_amount",grabber.last_parse_amount);
 		ini_close(); 
 		}
-		*/
 }
