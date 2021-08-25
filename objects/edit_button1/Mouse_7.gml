@@ -1,4 +1,6 @@
 /// @description edit website source list
+room_goto(website_room);
+/*
 if (instance_exists(pop_up)=false) and (grabber.currently_downloading=0){
 ///refresh list	
 
@@ -23,3 +25,4 @@ var pop = instance_create_depth(x,y,0,pop_up);
 pop.pop_up_type =0
 
 }
+*/

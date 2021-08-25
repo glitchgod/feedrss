@@ -1,5 +1,6 @@
 /// @description filter options
-
+room_goto(filter_room);
+/*
 if (instance_exists(pop_up)=false) and (grabber.currently_downloading=0){
 
 ///refresh the ignore list
@@ -201,3 +202,4 @@ pop_up.pop_up_text_lines += string_count("#",text_to_show_info) +  string_count(
 pop_up.pop_up_text_lines += array_length_1d(grabber.ignore_list);
 
 }
+*/

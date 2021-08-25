@@ -10,7 +10,7 @@ if (is_array(global.url_1_response)=true) and (array_length_1d(global.url_1_resp
 		draw_sprite_ext(download_button_dark,-1,x+((each_part)*(grabber.multi_url_pull_at+1)),y,1,1,0,c_ltgray,1)
 	
 	
-		draw_set_font(font1)
+		draw_set_font(font_small)
 		draw_set_halign(fa_center)
 		draw_text_color(x+sprite_get_width(download_button_dark)/2-2,y-2,"Processing",c_black,c_black,c_black,c_black,1)
 		draw_text_color(x+sprite_get_width(download_button_dark)/2,y,"Processing",c_white,c_white,c_white,c_white,1)
@@ -30,7 +30,7 @@ if (is_array(global.url_1_response)=true) and (array_length_1d(global.url_1_resp
 		draw_sprite_ext(download_button_dark,-1,x,y,1,1,0,c_ltgray,1)
 	
 	
-		draw_set_font(font1)
+		draw_set_font(font_small)
 		draw_set_halign(fa_center)
 		draw_text_color(x+sprite_get_width(download_button_dark)/2-2,y-2,"Processing",c_black,c_black,c_black,c_black,1)
 		draw_text_color(x+sprite_get_width(download_button_dark)/2,y,"Processing",c_white,c_white,c_white,c_white,1)
