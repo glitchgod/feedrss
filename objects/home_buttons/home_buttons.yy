@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "actual buttons",
+    "path": "folders/Objects/actual buttons.yy",
   },
   "resourceVersion": "1.0",
   "name": "home_buttons",

@@ -32,8 +32,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "home",
+    "path": "folders/Objects/layout objects/home.yy",
   },
   "resourceVersion": "1.0",
   "name": "pop_up",

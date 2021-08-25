@@ -1,4 +1,4 @@
-/// @description draw info
+/// @description draw stats
 if room=home_room{
 	draw_set_font(font_normal);
 	draw_set_color(c_white);
