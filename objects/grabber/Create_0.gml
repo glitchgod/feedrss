@@ -58,7 +58,7 @@ episodes_on=0
 
 //update info
 version_current="";
-version_current="1.1.5"
+version_current="2.0.0"
 grabber.version_check="";
 hour_check=0;
 hour_check= current_hour;

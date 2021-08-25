@@ -1,7 +1,7 @@
 {
   "option_windows_display_name": "${project_name}",
   "option_windows_executable_name": "${project_name}",
-  "option_windows_version": "1.1.3.0",
+  "option_windows_version": "2.0.0.0",
   "option_windows_company_info": "",
   "option_windows_product_info": "",
   "option_windows_copyright_info": "",
