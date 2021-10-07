@@ -20,6 +20,7 @@
     {"id":{"name":"edit_url_ini_list","path":"scripts/edit_url_ini_list/edit_url_ini_list.yy",},"order":11,},
     {"id":{"name":"edit_word_filter_list","path":"scripts/edit_word_filter_list/edit_word_filter_list.yy",},"order":13,},
     {"id":{"name":"toggle_button","path":"objects/toggle_button/toggle_button.yy",},"order":5,},
+    {"id":{"name":"save_shower","path":"objects/save_shower/save_shower.yy",},"order":0,},
     {"id":{"name":"Note1","path":"notes/Note1/Note1.yy",},"order":0,},
     {"id":{"name":"info_mark","path":"sprites/info_mark/info_mark.yy",},"order":8,},
     {"id":{"name":"download_button_dark","path":"sprites/download_button_dark/download_button_dark.yy",},"order":14,},
@@ -97,6 +98,7 @@
     {"folderPath":"folders/Objects/layout objects/home.yy","order":0,"resourceVersion":"1.0","name":"home","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Objects/layout objects/universal.yy","order":3,"resourceVersion":"1.0","name":"universal","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Objects/layout objects/info.yy","order":4,"resourceVersion":"1.0","name":"info","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Objects/layout objects/save location.yy","order":5,"resourceVersion":"1.0","name":"save location","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
