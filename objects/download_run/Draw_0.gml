@@ -2,7 +2,7 @@
 
 each_part=0	
 draw_self();
-
+/*
 //for multiple rss feeds
 if (is_array(global.url_1_response)=true) and (array_length_1d(global.url_1_response)>1){
 	if (grabber.multi_url_pull_at<real(array_length_1d(global.url_1_response))-1) and (array_length_1d(global.url_1_response)>0){
@@ -42,3 +42,4 @@ if (is_array(global.url_1_response)=true) and (array_length_1d(global.url_1_resp
 		draw_rectangle_color(x+sprite_get_width(download_button_dark),y,x+600,y+sprite_get_height(download_button_dark),c_ltgrey,c_ltgrey,c_ltgrey,c_ltgrey,false);
 	}
 }
+*/

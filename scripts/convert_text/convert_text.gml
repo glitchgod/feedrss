@@ -1,4 +1,8 @@
-/// @description convert a string of text to  multiple lines
+/// @function					convert_text(argument0,argument1,argument2)
+/// @param {string} string		The message to show
+/// @param {real} max_width		The max width of the area the text should be at
+/// @param {string} Font		The font to use
+/// @description				convert a string of text to  multiple lines
 function convert_text(argument0,argument1,argument2){
 	var text_to_convert = argument0;								//string to be converted
 	var text_working_width = argument1*1.65;						//max width in pixels that can be used
@@ -18,7 +22,7 @@ function convert_text(argument0,argument1,argument2){
 				var a=0																							//tracks how characters to subtract to insert a line break
 				do {
 					a--																							//increase the amount to count back to insert /n
-				}until ((string_char_at(test_text,string_length(test_text)+a) = " ") or (string_char_at(test_text,string_length(test_text)+a) = "")) = true;	//
+				}until ((string_char_at(test_text,string_length(test_text)+a) = " ") or (string_char_at(test_text,string_length(test_text)+a) = "")) = true or (a < -80000 );	//
 				test_text = string_insert(" \n",test_text,string_length(test_text)+ a)							//insert the /n at the "a" location
 				test_text_char_at = 0;																			//reset the char at
 			}

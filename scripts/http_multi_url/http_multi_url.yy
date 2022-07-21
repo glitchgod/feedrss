@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "old",
+    "path": "folders/Scripts/old.yy",
   },
   "resourceVersion": "1.0",
   "name": "http_multi_url",

@@ -1,92 +1,100 @@
-/// @description set up test variables
-global.folder_folder="";
-global.url_1_response="";
-grabber.github_grab_id ="";
-raw_1_output="";
-array_of_1[0]="";
-array_of_issues[0]="";
-global.download_link="";
-array_of_2[0]="";
-actual_link="";
+/// @description 
 
-currently_downloading=0;
-//file_name="";
+///Main Variables for grabbing from sites (new)
+website_url_id[0] = 0;								//id array of the website that keeps track of what website is being looked at
+website_raw_out[0] = "";							//raw data that is given from a website
+links_found[0] = "";								//keep a list of the parsed links from the sites
+links_sorted [0] ="";								//keep track of after the links are sorted
+loaded_old_torrents[0] = ""							//keep track of the old torrents downloaded
+website_on = "";									//keep track of what feed source is to be written
+//needs to be cleaned up
+/*
+global.url_1_response = "";
+raw_1_output = "";
+array_of_1[0] = "";
+array_of_issues[0] = "";
+global.download_link = "";
+array_of_2[0] = "";
+actual_link = "";
+currently_downloading = 0;
+multi_url_pull_at = 0;
+*/
+
 
 //timer that resets when to do a url pull
-timer_minutes_constant=0;
-timer_minutes_constant=room_speed*60;
-timer_minutes=0;
-timer_minutes=5;
-timer_live="";
+timer_minutes_constant = 0;
+timer_minutes_constant = room_speed*60;
+timer_minutes = 0;
+timer_minutes = 5;
+timer_live = "";
 
-//stats to what the program has done
-//total_downloaded=0;
-total_errors=0;
-last_updated="";
-last_parse_amount=0;
-last_download_amount=0;
-//--also timer_minutes gets loaded to--//
-url_list[0]="";
-url_list[0,0]="";
-url_list[0,1]="";
-active_url_list=0;
-ignore_list[0]=""
-Url_count=0;
+//stats to what the program has done on screen
+total_errors = 0;
+last_updated = "";
+last_parse_amount = 0;
+last_download_amount = 0;
+
+//setup the storing of websites and website info
+url_list[0] = "";					//set up the array to hold the websites
+url_list[0,0] = "";					//set up the storing of the website url
+url_list[0,1] = "";					//set up the storing of the website issue
+url_list[0,2] = "";					//set up the storing of the website last work 
+url_list[0,3] = "";					//set up the storing of the website links found
+url_list[0,4] = "";					//set up the storing of the website actual downloaded from link
+url_list[0,5] = "";					//set up the storing of the website group number
+
+//list of custom words to be ignored
+custom_word_list[0] = "";			//set up the array to store the list of custom made words
+
+//setup the list of things to be ignored
+ignore_list[0] = "";				//storage of words used by the built in filters
+
+//setup the total things to ignore both custom and filter
+filtered_list[0] ="";				//storage that will be used to check all torrents against
 
 //save location
-save_file_location="";
+save_file_location = "";
 
-//full ignore list with options
-full_ignore_list[0]="";
+//loading filter variables (new)
+custom_flter_options[0] = 0;		//setup filter options | 1 is on | 0 is off
 
-//loading filter variables
-russian_on=0
-china_on=0
-japan_on=0
-countries_on=0
-porn_on=0
-not_1080p=0
-not_webrip=0
-not_720p=0
-not_480p=0
-only_movies=0
-no_vids_over_1year=0
-no_vids_over_5year=0
-no_vids_over_20year=0
-episodes_on=0
-
+//list of options in order
+//RUSSIAN
+//Simple Chinese Characters
+//common phrases for None English Dub
+//common Porn Phrases
+//1080 in title
+//Webrip in title
+//720p in title
+//480p in title
+//4k and 8k in title
+//videos with phrases like HDCAM
+//(cmd setup) Double check filtering with tor engine
+//Filter out episodes from titles
+//"Movie age limiter by years
+//Movie no older than [x] Years
+//Metacritic min score
+//No Movie with a score below [x]
+//Imdb rating min score
+//No Movie with a score below [x] 
+//Use custom word filters
+//Simple japanese Characters
+//
+//
+//
+//
+//
 
 //update info
-version_current="";
-version_current="2.0.0"
-grabber.version_check="";
-hour_check=0;
-hour_check= current_hour;
-grabber.github_grab_id="";
-grabber.github_grab="";
-is_update=0;
+version_current = "";
+version_current = "2.0.0"
+version_current_A = 0;
+version_current_B = 0;
+version_current_C = 0;
 
-
-//history data
-history[0,0]="";
-history[0,1]="";
-history[0,2]="";
-history[0,3]="";
-history_at=0;
-//set history start data
-history[0,0]="Fixed Name";
-history[0,1]="Link:";
-history[0,2]="filtered/old,New";
-history[0,3]="Source From:";
-history_at=1;
-history_points_at=1;
-multi_url_pull_at=0;
-
-
-
-//run update at start with delay
-alarm[1]=room_speed*3;
-
+version_current_A = 2;
+version_current_B = 0;
+version_current_C = 0;
 
 
 //---------------------------------------------------------------------------------
@@ -96,52 +104,20 @@ alarm[1]=room_speed*3;
 //load stats file
 if file_exists(string(working_directory)+"tool_stats.ini"){
     ini_open(string(working_directory)+"tool_stats.ini");
-    timer_minutes=ini_read_real("settings","minutes",5);
-    last_parse_amount=ini_read_real("stats","last_parse_amount",0);
-    last_download_amount=ini_read_real("stats","last_download_amount",0);
-    last_updated=ini_read_string("stats","last_update_time","00:00:00");
-    save_file_location=ini_read_string("stats","save_file_location","");
+    timer_minutes = ini_read_real("settings","minutes",5);
+    last_parse_amount = ini_read_real("stats","last_parse_amount",0);
+    last_download_amount = ini_read_real("stats","last_download_amount",0);
+    last_updated = ini_read_string("stats","last_update_time","00:00:00");
+    save_file_location = ini_read_string("stats","save_file_location","");
     ini_close(); 
 
 }
 
-//load url list file
-if file_exists(string(working_directory)+"url_list.ini")=true{
-    ini_open(string(working_directory)+"url_list.ini");
-    Url_count=ini_read_real("Amountofurl","Urlcount",0);
-	for (r=0; r<real(Url_count);r++) {
-	    grabber.url_list[r,0] = ini_read_string("Amountofurl",r,-1);
-		grabber.url_list[r,1] = ini_read_string("Amountofurl",string(r)+string("_issue"),"None");
-		
-	    }
-	ini_close(); 
-}
+//load url list file(new)
+load_external_website_list();
 
-//load ignore list
-if file_exists(string(working_directory)+"ignore_list.ini")=true{
-    ini_open(string(working_directory)+"ignore_list.ini");
-    var total_ignore=ini_read_real("Amount of ignore","Ignore_count",0);
-    
-    grabber.russian_on = ini_read_real("russian_on","russian_on",0);
-    grabber.china_on = ini_read_real("china_text","china_on",0);
-    grabber.japan_on = ini_read_real("japan_text","japan_on",0);
-    grabber.countries_on = ini_read_real("countries_on","countries_on",0);
-    grabber.porn_on = ini_read_real("porn_on","porn_on",0);
-    grabber.not_1080p = ini_read_real("not_1080p","not_1080p",0);
-    grabber.not_webrip = ini_read_real("not_webrip","not_webrip",0);
-    grabber.not_720p = ini_read_real("not_720p","not_720p",0);
-    grabber.not_480p = ini_read_real("not_480p","not_480p",0);
-    grabber.only_movies = ini_read_real("only_movies","only_movies",0);
-    grabber.no_vids_over_1year = ini_read_real("no_vids_over_1year","no_vids_over_1year",0);
-    grabber.no_vids_over_5year = ini_read_real("no_vids_over_5year","no_vids_over_5year",0);
-    grabber.no_vids_over_20year = ini_read_real("no_vids_over_20year","no_vids_over_20year",0);
-    grabber.only_movies = ini_read_real("only_movies","only_movies",0);
-	grabber.episodes_on = ini_read_real("episodes_on","episodes_on",0);
-    
-    if total_ignore>0 {
-    for (c=0; c<total_ignore;c++) {
-        ignore_list[c]=ini_read_string("Ignore_list",c,"");
-        }
-    }    
-    ini_close(); 
-}
+//load ignore list(new)
+load_custom_filter_options();
+
+//setup the filter list
+custom_filter_apllier()

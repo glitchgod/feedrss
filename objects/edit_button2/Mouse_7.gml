@@ -1,5 +1,8 @@
 /// @description filter options
 room_goto(filter_room);
+clicked_on = 0;
+
+
 /*
 if (instance_exists(pop_up)=false) and (grabber.currently_downloading=0){
 

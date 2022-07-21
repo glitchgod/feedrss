@@ -1,3 +1,3 @@
 /// @description text variables
-depth=-2;
+depth=-100;
 mouse_over_text="";

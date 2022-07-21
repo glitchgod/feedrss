@@ -1,6 +1,6 @@
 {
-  "option_tvos_display_name": "feedrss",
-  "option_tvos_bundle_name": "",
+  "option_tvos_display_name": "Made in GameMaker Studio 2",
+  "option_tvos_bundle_name": "com.company.game",
   "option_tvos_version": "1.0.0.0",
   "option_tvos_output_dir": "~/GameMakerStudio2/tvOS",
   "option_tvos_team_id": "",
@@ -15,7 +15,7 @@
   "option_tvos_splashscreen_2x": "${base_options_dir}/tvos/splash/splash_2x.png",
   "option_tvos_splash_time": 0,
   "option_tvos_interpolate_pixels": true,
-  "option_tvos_scale": -1,
+  "option_tvos_scale": 0,
   "option_tvos_texture_page": "2048x2048",
   "option_tvos_display_cursor": false,
   "option_tvos_push_notifications": false,

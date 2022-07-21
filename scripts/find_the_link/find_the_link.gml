@@ -6,42 +6,42 @@ function find_the_link(argument0, argument1) {
 	//
 	//
 	/////////////////////////////////////////
-	current_link=argument0;
-	keyword=argument1; 
-	keyword="<item>";//test
+	current_link = argument0;
+	keyword = argument1; 
+	keyword = "<item>";//test
 
-	keyword_end=string_insert("/", argument1, 2);
-	grabber.items_found=-1;
-	grabber.history_at=-1
+	keyword_end = string_insert("/", argument1, 2);
+	grabber.items_found = -1;
+	grabber.history_at = -1
 
 	//foreach section
-	start_copy_at=0;
-	end_copy_at=0;
-	section_found="";
-	titleout="";
-	originaltitleout=""
-	linkout="";
-	grabDateout="";
-	categoryout="";
-	categoryissue="";
-	scanned_items[0]="";
-	current_count=0;
-	max_count=100; //the amount of urls allowed to be processed at a time.... maybe allow customization in future.
-	start_hash_at=0;
-	end_hash_at=0;
-	hash_out="";
-	start_info_hashed_at=""
-	end_info_hashed_at=""
-	info_hashed_out=""
-	start_enclosure_url=""
-	end_enclosure_url=""
-	denied_reason=""
-	downedout="" //say if their is an error or nothing, if nothing then it downloads
+	start_copy_at = 0;
+	end_copy_at = 0;
+	section_found = "";
+	titleout = "";
+	originaltitleout = ""
+	linkout = "";
+	grabDateout = "";
+	categoryout = "";
+	categoryissue = "";
+	scanned_items[0] = "";
+	current_count = 0;
+	max_count = 1000; //the amount of urls allowed to be processed at a time.... maybe allow customization in future.
+	start_hash_at = 0;
+	end_hash_at = 0;
+	hash_out = "";
+	start_info_hashed_at = ""
+	end_info_hashed_at = ""
+	info_hashed_out = ""
+	start_enclosure_url = ""
+	end_enclosure_url = ""
+	denied_reason = ""
+	downedout = "" //say if their is an error or nothing, if nothing then it downloads
 	
 	//check off to continue
-	verify=0;
-	global.test_title="";
-	global.inside="";
+	verify = 0;
+	test_title = "";
+	inside = "";
 	//verify is for filtering
 	//0 - no filter aka proceed 
 	//1 - filter aka dont download
@@ -50,47 +50,38 @@ function find_the_link(argument0, argument1) {
 	do {
 	    //RESET FOR THE LOOP
         
-	    titleout="";
-	    linkout="";
-	    grabDateout="";
-	    categoryout="";
-		denied_reason="";
-		downedout="";
-		categoryissue="";
+	    titleout = "";
+	    linkout = "";
+	    grabDateout = "";
+	    categoryout = "";
+		denied_reason = "";
+		downedout = "";
+		categoryissue = "";
     
-	    start_copy_at=string_pos(string(keyword), current_link) ;
-	    end_copy_at=string_pos(string(keyword_end), current_link)-start_copy_at ;
+	    start_copy_at = string_pos(string(keyword), current_link) ;								//looks for the keyword and makes note of where to start the cut
+	    end_copy_at = string_pos(string(keyword_end), current_link)-start_copy_at ;				//looks for the keyword and makes note of where to stop the cut
 	    //cut out this section
-	    section_found=string_copy(current_link, start_copy_at, end_copy_at) ;
+	    section_found = string_copy(current_link, start_copy_at, end_copy_at) ;					//set the cutout section as its own thing
 	    //remove the section
-	    current_link=string_replace(current_link, keyword, "<scanned>");
-	    current_link=string_replace(current_link, keyword_end, "</scanned>");
+	    current_link = string_replace(current_link, keyword, "<scanned>");						//replace the keyword as to prevent looping
+	    current_link = string_replace(current_link, keyword_end, "</scanned>");					//replace the end keyword as to prevent looping
 
 //---------------------------------------------------------------------------------    
 //Process the Title
 //---------------------------------------------------------------------------------    
     
 	    //find the title
-	    if string_count( "<title>", section_found )>0{
-	        title_start=string_pos(string("<title>"), section_found)+7; 
-	        title_end=string_pos(string("</title>"), section_found)-title_start;
-	        titleout= string_copy(section_found,title_start,title_end);
-			originaltitleout=titleout;
+	    if string_count( "<title>", section_found )>0{											//searches for a title
+	        title_start = string_pos(string("<title>"), section_found)+7;						//finds the start of the title
+	        title_end = string_pos(string("</title>"), section_found)-title_start;				//finds the end of the title
+	        titleout = string_copy(section_found,title_start,title_end);						//sets the title as its own thing
+			originaltitleout = titleout;														//saves what the og title was
 
 //---------------------------------------------------------------------------------    
 //Clean up the title for further processing
 //---------------------------------------------------------------------------------    	
-			/*
-			if array_length_1d(grabber.ascii_characters)>1{
-			    hh = array_length_1d(grabber.ascii_characters);
-			    for (ii=0;ii<hh;ii++){
-					if string_count( ii, titleout )>0{
-				            titleout= string_replace_all(titleout, ii, " ");
-				            }
-			        }
-			    }
-			*/
-	        if string_count( "[", titleout )>0{
+			
+	        if string_count( "[", titleout )>0{													//list of everything that needs to be replaced by default
 	            titleout= string_replace_all(titleout, "[", " ");
 	            }
 	        if string_count( "]", titleout )>0{
@@ -145,7 +136,7 @@ function find_the_link(argument0, argument1) {
 //Fix HTML code that coverts symbols to a set of seperate code.
 //---------------------------------------------------------------------------------   
 
-	        if string_count("&amp;apos;", titleout )>0{
+	        if string_count("&amp;apos;", titleout )>0{												//replace 
 	            titleout= string_replace_all(titleout, "&amp;apos;", "'");
 	            }
 				
@@ -155,23 +146,23 @@ function find_the_link(argument0, argument1) {
 
 
 	        //run the filter list here
-			global.test_title = string(titleout)
-	        verify=0
-			denied_reason=""
+			test_title = string(titleout)															//set  test value
+	        verify=0																				//reset verify
+			denied_reason=""																		//reset the denied reason
 			
-		    for (h=0;h<array_length_1d(grabber.full_ignore_list);h++){
-		        global.inside = string(string_lower(grabber.full_ignore_list[h]));
+		    for (h=0;h<array_length(grabber.filtered_list);h++){									//loop to see if any filtered content is found
+		        inside = string(string_lower(grabber.filtered_list[h]));							//set what filtered word to look for
 		        //this causes the for loop to jump back to start if verify is not 0
-				if (string_count(string(string_lower(global.inside)), string(string_lower(global.test_title)))!=0) and (verify=0){
-					if (string_count(string(string_lower(global.inside))+" ", string(string_lower(global.test_title)))>=1){
-						denied_reason=string(string_lower(grabber.full_ignore_list[h]))
+				if (string_count(string(string_lower(inside)), string(string_lower(test_title)))!=0) and (verify=0) and (inside != "") and (inside != " "){
+					if (string_count(string(string_lower(inside))+" ", string(string_lower(test_title)))>=1){
+						denied_reason=string(string_lower(grabber.filtered_list[h]))				//save what caused it to not be downloaded
 						if (denied_reason!="0"){
 							verify=1
 							}
 						break;
 						}
-					if ((string_length(string(string_lower(global.inside))))=1){
-						denied_reason=string(string_lower(grabber.full_ignore_list[h]))
+					if ((string_length(string(string_lower(inside))))=1){
+						denied_reason=string(string_lower(grabber.filtered_list[h]))
 						if (denied_reason!="0"){
 							verify=1
 							}
@@ -217,35 +208,35 @@ function find_the_link(argument0, argument1) {
 				categoryout=string_replace(categoryout,"]]>","]");
 			}
 			
-			if grabber.only_movies = 1 {
-				temp_see=0;
+			
+			temp_see=0;
 				
-				//compare the text to categoryout and set to 1 if the category is allowed
-				if temp_see =0 {
-					temp_see = string_pos(string_lower("movies"), string(string_lower(categoryout)));
-				}
-				if temp_see =0 {
-					temp_see = string_pos(string_lower("movie"), string(string_lower(categoryout)));
-				}	
-				if temp_see =0 {
-					temp_see = string_pos(string_lower("video"), string(string_lower(categoryout)));
-				}	
-				if temp_see =0 {
-					temp_see = string_pos(string_lower("videos"), string(string_lower(categoryout)));
-				}	
-				if temp_see =0 {
-					temp_see = string_pos(string_lower(""), string(string_lower(categoryout)));
-				}	
-				if temp_see =0 {
-					temp_see = string_pos(string_lower(" "), string(string_lower(categoryout)));
-				}
-				
-				if temp_see=0 {
-					verify=1;
-					categoryout=string(categoryout)+string(" | ")+string("Only Movies Nothing Else")	
-					categoryissue=string("Only Movies Nothing Else");
-				}
+			//compare the text to categoryout and set to 1 if the category is allowed
+			if temp_see =0 {
+				temp_see = string_pos(string_lower("movies"), string(string_lower(categoryout)));
 			}
+			if temp_see =0 {
+				temp_see = string_pos(string_lower("movie"), string(string_lower(categoryout)));
+			}	
+			if temp_see =0 {
+				temp_see = string_pos(string_lower("video"), string(string_lower(categoryout)));
+			}	
+			if temp_see =0 {
+				temp_see = string_pos(string_lower("videos"), string(string_lower(categoryout)));
+			}	
+			if temp_see =0 {
+				temp_see = string_pos(string_lower(""), string(string_lower(categoryout)));
+			}	
+			if temp_see =0 {
+				temp_see = string_pos(string_lower(" "), string(string_lower(categoryout)));
+			}
+				
+			if temp_see=0 {
+				verify=1;
+				categoryout=string(categoryout)+string(" | ")+string("Only Movies Nothing Else")	
+				categoryissue=string("Only Movies Nothing Else");
+			}
+			
 	    }
 
 //no category
@@ -272,7 +263,7 @@ function find_the_link(argument0, argument1) {
 			}
 		
 	    //Filter out direct magnet links
-	    if string_count( "magnet:?xt",string_lower(linkout) )>0   and linkout=""{//&& verify = 0{
+	    if string_count( "magnet:?xt",string_lower(linkout) ) > 0{
 			
 			if string_count( "dn=",string_lower(linkout) )>0 {
 				end_hash_at=real(string_pos(string("dn="), linkout))-27; 
@@ -286,7 +277,7 @@ function find_the_link(argument0, argument1) {
 	    }
 		
 		//Filter out embeded links
-		if string_count( "<enclosure url=", section_found )>0 and linkout="" {//&& verify = 0{
+		if string_count( "<enclosure url=", section_found ) > 0{
 	        start_enclosure_url=string_pos(string("<enclosure url="), section_found)+16; 
 	        end_enclosure_url=string_pos(string(".torrent"), section_found)-start_enclosure_url+8;
 	        linkout= string_copy(section_found,start_enclosure_url,end_enclosure_url);			
@@ -325,16 +316,7 @@ function find_the_link(argument0, argument1) {
 	    scanned_items[items_found,4]=originaltitleout;
 	    scanned_items[items_found,5]=downedout;
 		
-		//history to add to
-		grabber.history[grabber.history_at,0]=titleout;
 		
-		//max length is 75in character limits so post process is needed
-		if string_length(linkout)>55{
-			linkout=string_insert("#",linkout,55)
-		}
-		grabber.history[grabber.history_at,1]=linkout;
-		grabber.history[grabber.history_at,2]="filtered/old,New";
-		grabber.history[grabber.history_at,3]=grabber.url_list[s,0];
     current_count++;
 	grabber.last_parse_amount++
 	}until ((string_pos(string(keyword), current_link)==0) or (current_count>max_count))

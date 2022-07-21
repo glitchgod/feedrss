@@ -1,3 +1,3 @@
-currently_downloading=1;
-http_multi_url();
-update_github_check()
+//currently_downloading=1;
+//http_multi_url();
+website_parser();

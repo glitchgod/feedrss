@@ -1,1 +1,0 @@
-scroll_wheel_spot += 6;

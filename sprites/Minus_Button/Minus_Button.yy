@@ -1,6 +1,6 @@
 {
   "bboxMode": 0,
-  "collisionKind": 4,
+  "collisionKind": 1,
   "type": 0,
   "origin": 0,
   "preMultiplyAlpha": false,
@@ -24,16 +24,16 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"484e599c-c59d-401b-ad81-5c058ff4f2cf","path":"sprites/Minus_Button/Minus_Button.yy",},"LayerId":null,"resourceVersion":"1.0","name":"imported","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"484e599c-c59d-401b-ad81-5c058ff4f2cf","path":"sprites/Minus_Button/Minus_Button.yy",},"LayerId":{"name":"022467ba-fe97-4053-aece-4abd5deb1ac7","path":"sprites/Minus_Button/Minus_Button.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"Minus_Button","path":"sprites/Minus_Button/Minus_Button.yy",},"resourceVersion":"1.0","name":"484e599c-c59d-401b-ad81-5c058ff4f2cf","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"e726cbc9-fb90-4012-8973-c762a548e6d6","path":"sprites/Minus_Button/Minus_Button.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"e726cbc9-fb90-4012-8973-c762a548e6d6","path":"sprites/Minus_Button/Minus_Button.yy",},"LayerId":{"name":"f147c30e-2ed3-4e6e-8350-866805fd7de2","path":"sprites/Minus_Button/Minus_Button.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"Minus_Button","path":"sprites/Minus_Button/Minus_Button.yy",},"resourceVersion":"1.0","name":"e726cbc9-fb90-4012-8973-c762a548e6d6","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"Minus_Button","path":"sprites/Minus_Button/Minus_Button.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 1.0,
-    "playbackSpeedType": 1,
+    "playbackSpeed": 30.0,
+    "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
     "length": 1.0,
@@ -41,8 +41,8 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"345b7b5c-2b42-40d2-9f14-8ee8a247d0c5","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"484e599c-c59d-401b-ad81-5c058ff4f2cf","path":"sprites/Minus_Button/Minus_Button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
-          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
+            {"id":"fd01e32a-8007-49ba-bbff-90c335a5c12b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e726cbc9-fb90-4012-8973-c762a548e6d6","path":"sprites/Minus_Button/Minus_Button.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+          ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
     "lockOrigin": false,
@@ -50,8 +50,8 @@
     "showBackdropImage": false,
     "backdropImagePath": "",
     "backdropImageOpacity": 0.5,
-    "backdropWidth": 1920,
-    "backdropHeight": 1080,
+    "backdropWidth": 1366,
+    "backdropHeight": 768,
     "backdropXOffset": 0.0,
     "backdropYOffset": 0.0,
     "xorigin": 0,
@@ -59,13 +59,13 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"Minus_Button","path":"sprites/Minus_Button/Minus_Button.yy",},
-    "resourceVersion": "1.3",
-    "name": "",
+    "resourceVersion": "1.4",
+    "name": "Minus_Button",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"022467ba-fe97-4053-aece-4abd5deb1ac7","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"f147c30e-2ed3-4e6e-8350-866805fd7de2","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {

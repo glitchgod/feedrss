@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "new",
+    "path": "folders/Scripts/new.yy",
   },
   "resourceVersion": "1.0",
   "name": "update_github_check",
