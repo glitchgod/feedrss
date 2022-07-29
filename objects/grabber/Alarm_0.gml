@@ -15,6 +15,7 @@ if (array_length(grabber.url_list)>0){										//check if their are sites
 			}
 	    }
 	}
+alarm[0]=timer_minutes_constant*timer_minutes;
 /*
 global.url_1_response[0]=-1;
 if ((grabber.Url_count)>0){ 

@@ -7,19 +7,6 @@ links_found[0] = "";								//keep a list of the parsed links from the sites
 links_sorted [0] ="";								//keep track of after the links are sorted
 loaded_old_torrents[0] = ""							//keep track of the old torrents downloaded
 website_on = "";									//keep track of what feed source is to be written
-//needs to be cleaned up
-/*
-global.url_1_response = "";
-raw_1_output = "";
-array_of_1[0] = "";
-array_of_issues[0] = "";
-global.download_link = "";
-array_of_2[0] = "";
-actual_link = "";
-currently_downloading = 0;
-multi_url_pull_at = 0;
-*/
-
 
 //timer that resets when to do a url pull
 timer_minutes_constant = 0;

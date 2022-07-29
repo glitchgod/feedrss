@@ -13,10 +13,10 @@ function custom_filter_apllier(){
 //11 Filter out episodes from titles
 //12 "Movie age limiter by years
 //13 Movie no older than [x] Years
-//14 Metacritic min score
-//15 No Movie with a score below [x]
-//16 Imdb rating min score
-//17 No Movie with a score below [x] 
+//14 (BROKEN)Metacritic min score
+//15 (BROKEN)No Movie with a score below [x]
+//16 (BROKEN)Imdb rating min score
+//17 (BROKEN)No Movie with a score below [x] 
 //18 Use custom word filters
 //19 Common japanese characters
 

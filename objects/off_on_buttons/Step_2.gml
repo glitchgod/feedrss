@@ -37,10 +37,10 @@ switch (attached_to){
 	option_text = "Filter out episodes from titles "
 	break;
 	case 12:
-	option_text = "[Broken]Movie age limiter by years "
+	option_text = "Movie age limiter by years "
 	break;
 	case 13:
-	option_text = "[Broken]Movie no older than [x] Years "
+	option_text = "Movie no older than [x] Years "
 	break;
 	case 14:
 	option_text = "[Broken]Metacritic min score "
